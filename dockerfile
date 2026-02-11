@@ -25,8 +25,11 @@ RUN apt-get update && apt-get install -y \
     libsm6 \
     libxext6 \
     libxrender1 \
+    libgomp1 \
+    libstdc++6 \
     poppler-utils \
     && rm -rf /var/lib/apt/lists/*
+
 
 
 
