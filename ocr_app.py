@@ -903,3 +903,19 @@ async def periodic_job_cleanup():
             # [CHANGE] Don't let cleanup errors crash the background task
             logger.error(f"Periodic cleanup error: {e}")
             await asyncio.sleep(60)  # Wait a bit before retrying
+
+
+# =============================================================================
+# MAIN ENTRY POINT
+# =============================================================================
+
+if __name__ == "__main__":
+    port = int(os.getenv("PORT", "8050"))
+
+    uvicorn.run(
+        app,
+        host="0.0.0.0",
+        port=port,
+        timeout_keep_alive=120,
+        log_level="info"
+    )
