@@ -1,0 +1,184 @@
+aiohappyeyeballs==2.6.1
+aiohttp==3.13.2
+aiosignal==1.4.0
+aistudio-sdk==0.3.8
+anaconda-anon-usage @ file:///croot/anaconda-anon-usage_1753980460404/work
+annotated-types==0.7.0
+anyio==4.11.0
+arabic-reshaper==3.0.0
+archspec @ file:///croot/archspec_1709217642129/work
+asttokens==3.0.0
+attrs==25.4.0
+bce-python-sdk==0.9.56
+beautifulsoup4==4.14.3
+boltons @ file:///croot/boltons_1751383775419/work
+Brotli @ file:///croot/brotli-split_1736182456865/work
+brotlicffi @ file:///croot/brotlicffi_1736182461069/work
+cachetools==6.2.4
+certifi==2025.10.5
+cffi @ file:///croot/cffi_1736182485317/work
+chardet==5.2.0
+charset-normalizer==3.4.4
+click==8.3.1
+colorama==0.4.6
+colorlog==6.10.1
+comm==0.2.3
+conda @ file:///croot/conda_1754469510968/work/conda-src
+conda-anaconda-telemetry @ file:///croot/conda-anaconda-telemetry_1755883788794/work
+conda-content-trust @ file:///croot/conda-content-trust_1714483159009/work
+conda-libmamba-solver @ file:///croot/conda-libmamba-solver_1745607008911/work/src
+conda-package-handling @ file:///croot/conda-package-handling_1731369017509/work
+conda_package_streaming @ file:///croot/conda-package-streaming_1751307506088/work
+contourpy==1.3.3
+cryptography @ file:///croot/cryptography_1753084572505/work
+cssselect==1.3.0
+cssutils==2.11.1
+cycler==0.12.1
+dataclasses-json==0.6.7
+debugpy==1.8.16
+decorator==5.2.1
+defusedxml==0.7.1
+Deprecated==1.3.1
+distro @ file:///croot/distro_1714488253808/work
+einops==0.8.1
+et_xmlfile==2.0.0
+executing==2.2.0
+fastapi==0.115.12
+filelock==3.20.1
+fonttools==4.61.1
+frozendict @ file:///croot/frozendict_1713194832637/work
+frozenlist==1.8.0
+fsspec==2025.12.0
+ftfy==6.3.1
+future==1.0.0
+graphviz==0.21
+greenlet==3.3.0
+h11==0.16.0
+hf-xet==1.2.0
+httpcore==1.0.9
+httpx==0.28.1
+httpx-sse==0.4.3
+huggingface_hub==1.2.3
+idna==3.11
+imagesize==1.4.1
+img2pdf==0.6.3
+ipykernel==6.29.5
+ipython==9.4.0
+ipython_pygments_lexers==1.1.1
+jedi==0.19.2
+Jinja2==3.1.6
+jiter==0.12.0
+joblib==1.5.3
+jsonpatch @ file:///croot/jsonpatch_1714483231291/work
+jsonpointer @ file:///croot/jsonpointer_1753788433671/work
+jupyter_client==8.6.3
+jupyter_core==5.8.1
+kiwisolver==1.4.9
+langchain==0.3.27
+langchain-community==0.3.31
+langchain-core==0.3.81
+langchain-openai==0.3.35
+langchain-text-splitters==0.3.11
+langsmith==0.5.0
+libmambapy @ file:///croot/mamba-split_1734469461757/work/libmambapy
+lxml==6.0.2
+MarkupSafe==3.0.3
+marshmallow==3.26.2
+matplotlib==3.10.8
+matplotlib-inline==0.1.7
+menuinst @ file:///croot/menuinst_1753464582829/work
+modelscope==1.33.0
+more-itertools==10.8.0
+multidict==6.7.0
+mypy_extensions==1.1.0
+nest-asyncio==1.6.0
+networkx==3.5
+numpy==2.2.4
+openai==2.14.0
+opencv-contrib-python==4.10.0.84
+opencv-python==4.12.0.88
+openpyxl==3.1.5
+opt-einsum==3.3.0
+orjson==3.11.5
+packaging @ file:///croot/packaging_1753775359799/work
+paddleocr==3.3.2
+paddlepaddle==3.2.0
+paddlex==3.3.12
+pandas==2.3.3
+parso==0.8.5
+pdf2image==1.17.0
+pexpect==4.9.0
+pikepdf==10.1.0
+pillow==11.1.0
+platformdirs @ file:///croot/platformdirs_1744273042065/work
+pluggy @ file:///croot/pluggy_1733169602837/work
+premailer==3.10.0
+prettytable==3.17.0
+prompt_toolkit==3.0.52
+propcache==0.4.1
+protobuf==6.30.2
+psutil==7.2.0
+ptyprocess==0.7.0
+pure_eval==0.2.3
+py-cpuinfo==9.0.0
+pyclipper==1.4.0
+pycosat @ file:///croot/pycosat_1736868416091/work
+pycparser @ file:///tmp/build/80754af9/pycparser_1636541352034/work
+pycryptodome==3.23.0
+pydantic==2.12.5
+pydantic-settings==2.12.0
+pydantic_core==2.41.5
+Pygments==2.19.2
+pymssql==2.3.11
+PyMuPDF==1.26.7
+pyparsing==3.3.1
+pypdfium2==5.2.0
+PySocks @ file:///work/perseverance-python-buildout/croot/pysocks_1698845478203/work
+python-bidi==0.6.7
+python-dateutil==2.9.0.post0
+python-docx==1.2.0
+python-dotenv==1.2.1
+pytz==2025.2
+PyYAML==6.0.2
+pyzmq==27.0.2
+regex==2025.11.3
+reportlab==4.4.7
+requests==2.32.5
+requests-toolbelt==1.0.0
+ruamel.yaml==0.18.17
+ruamel.yaml.clib==0.2.15
+safetensors==0.7.0
+scikit-learn==1.8.0
+scipy==1.16.3
+sentencepiece==0.2.1
+setuptools==80.9.0
+shapely==2.1.2
+shellingham==1.5.4
+six==1.17.0
+sniffio==1.3.1
+soupsieve==2.8.1
+SQLAlchemy==2.0.45
+stack-data==0.6.3
+starlette==0.46.2
+supervision==0.27.0
+tenacity==9.1.2
+threadpoolctl==3.6.0
+tiktoken==0.12.0
+tokenizers==0.22.1
+tornado==6.5.2
+tqdm @ file:///croot/tqdm_1738943501192/work
+traitlets==5.14.3
+truststore @ file:///croot/truststore_1753907171582/work
+typer-slim==0.20.1
+typing-inspect==0.9.0
+typing-inspection==0.4.2
+typing_extensions==4.15.0
+tzdata==2025.3
+ujson==5.11.0
+urllib3==2.6.2
+uuid_utils==0.12.0
+wcwidth==0.2.14
+wheel==0.45.1
+wrapt==2.0.1
+yarl==1.22.0
+zstandard==0.25.0

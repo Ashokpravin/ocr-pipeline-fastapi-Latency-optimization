@@ -1,0 +1,4 @@
+{
+    "WIN_PATH_TO_SOFFICE_BIN_FOLDER": "C:/Program Files/LibreOffice/program/",
+    "ext_list": ["doc", "pdf", "ppt", "htm", "xls", "txt", "csv"]
+}

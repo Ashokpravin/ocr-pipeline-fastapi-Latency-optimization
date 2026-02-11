@@ -1,0 +1,542 @@
+2026-02-11 09:25:38,896 - __main__ - INFO - [lifespan:326] ============================================================
+2026-02-11 09:25:38,897 - __main__ - INFO - [lifespan:327] CustomOCR Pipeline API v2.2.0 starting...
+2026-02-11 09:25:38,897 - __main__ - INFO - [lifespan:328] ============================================================
+2026-02-11 09:25:38,897 - __main__ - INFO - [lifespan:331] Output Directory  : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output
+2026-02-11 09:25:38,897 - __main__ - INFO - [lifespan:332] Completed Dir     : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output/completed
+2026-02-11 09:25:38,897 - __main__ - INFO - [lifespan:333] Max Upload Size   : 500 MB
+2026-02-11 09:25:38,897 - __main__ - INFO - [lifespan:334] Max Workers       : 2
+2026-02-11 09:25:38,897 - __main__ - INFO - [lifespan:335] Job Retention     : 24 hours
+2026-02-11 09:25:38,897 - __main__ - INFO - [lifespan:336] Allowed Extensions: 23 types
+2026-02-11 09:25:38,897 - __main__ - INFO - [lifespan:343] Output directory: Writable ✓
+2026-02-11 09:25:38,897 - __main__ - INFO - [lifespan:350] Thread pool initialized with 2 workers
+2026-02-11 09:25:38,897 - __main__ - INFO - [lifespan:358] ============================================================
+2026-02-11 09:25:38,897 - __main__ - INFO - [lifespan:359] API Ready. Accepting requests.
+2026-02-11 09:25:38,897 - __main__ - INFO - [lifespan:360] ============================================================
+2026-02-11 09:33:45,199 - __main__ - INFO - [lifespan:365] CustomOCR Pipeline API shutting down...
+2026-02-11 09:33:45,199 - __main__ - INFO - [periodic_job_cleanup:900] Periodic cleanup task cancelled
+2026-02-11 09:33:45,199 - __main__ - INFO - [lifespan:378] Thread pool shut down
+2026-02-11 09:33:45,199 - __main__ - INFO - [lifespan:380] Shutdown complete.
+2026-02-11 09:41:33,964 - __main__ - INFO - [lifespan:326] ============================================================
+2026-02-11 09:41:33,964 - __main__ - INFO - [lifespan:327] CustomOCR Pipeline API v2.2.0 starting...
+2026-02-11 09:41:33,965 - __main__ - INFO - [lifespan:328] ============================================================
+2026-02-11 09:41:33,965 - __main__ - INFO - [lifespan:331] Output Directory  : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output
+2026-02-11 09:41:33,965 - __main__ - INFO - [lifespan:332] Completed Dir     : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output/completed
+2026-02-11 09:41:33,965 - __main__ - INFO - [lifespan:333] Max Upload Size   : 500 MB
+2026-02-11 09:41:33,965 - __main__ - INFO - [lifespan:334] Max Workers       : 2
+2026-02-11 09:41:33,965 - __main__ - INFO - [lifespan:335] Job Retention     : 24 hours
+2026-02-11 09:41:33,965 - __main__ - INFO - [lifespan:336] Allowed Extensions: 23 types
+2026-02-11 09:41:33,965 - __main__ - INFO - [lifespan:343] Output directory: Writable ✓
+2026-02-11 09:41:33,965 - __main__ - INFO - [lifespan:350] Thread pool initialized with 2 workers
+2026-02-11 09:41:33,965 - __main__ - INFO - [lifespan:358] ============================================================
+2026-02-11 09:41:33,965 - __main__ - INFO - [lifespan:359] API Ready. Accepting requests.
+2026-02-11 09:41:33,965 - __main__ - INFO - [lifespan:360] ============================================================
+2026-02-11 09:44:16,510 - __main__ - INFO - [lifespan:365] CustomOCR Pipeline API shutting down...
+2026-02-11 09:44:16,510 - __main__ - INFO - [periodic_job_cleanup:900] Periodic cleanup task cancelled
+2026-02-11 09:44:16,510 - __main__ - INFO - [lifespan:378] Thread pool shut down
+2026-02-11 09:44:16,510 - __main__ - INFO - [lifespan:380] Shutdown complete.
+2026-02-11 09:51:48,927 - __main__ - INFO - [lifespan:326] ============================================================
+2026-02-11 09:51:48,927 - __main__ - INFO - [lifespan:327] CustomOCR Pipeline API v2.2.0 starting...
+2026-02-11 09:51:48,927 - __main__ - INFO - [lifespan:328] ============================================================
+2026-02-11 09:51:48,927 - __main__ - INFO - [lifespan:331] Output Directory  : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output
+2026-02-11 09:51:48,927 - __main__ - INFO - [lifespan:332] Completed Dir     : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output/completed
+2026-02-11 09:51:48,927 - __main__ - INFO - [lifespan:333] Max Upload Size   : 500 MB
+2026-02-11 09:51:48,927 - __main__ - INFO - [lifespan:334] Max Workers       : 2
+2026-02-11 09:51:48,927 - __main__ - INFO - [lifespan:335] Job Retention     : 24 hours
+2026-02-11 09:51:48,927 - __main__ - INFO - [lifespan:336] Allowed Extensions: 23 types
+2026-02-11 09:51:48,927 - __main__ - INFO - [lifespan:343] Output directory: Writable ✓
+2026-02-11 09:51:48,927 - __main__ - INFO - [lifespan:350] Thread pool initialized with 2 workers
+2026-02-11 09:51:48,928 - __main__ - INFO - [lifespan:358] ============================================================
+2026-02-11 09:51:48,928 - __main__ - INFO - [lifespan:359] API Ready. Accepting requests.
+2026-02-11 09:51:48,928 - __main__ - INFO - [lifespan:360] ============================================================
+2026-02-11 09:55:28,381 - __main__ - INFO - [lifespan:365] CustomOCR Pipeline API shutting down...
+2026-02-11 09:55:28,381 - __main__ - INFO - [periodic_job_cleanup:900] Periodic cleanup task cancelled
+2026-02-11 09:55:28,381 - __main__ - INFO - [lifespan:378] Thread pool shut down
+2026-02-11 09:55:28,381 - __main__ - INFO - [lifespan:380] Shutdown complete.
+2026-02-11 10:06:38,883 - __main__ - INFO - [lifespan:326] ============================================================
+2026-02-11 10:06:38,883 - __main__ - INFO - [lifespan:327] CustomOCR Pipeline API v2.2.0 starting...
+2026-02-11 10:06:38,883 - __main__ - INFO - [lifespan:328] ============================================================
+2026-02-11 10:06:38,883 - __main__ - INFO - [lifespan:331] Output Directory  : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output
+2026-02-11 10:06:38,883 - __main__ - INFO - [lifespan:332] Completed Dir     : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output/completed
+2026-02-11 10:06:38,883 - __main__ - INFO - [lifespan:333] Max Upload Size   : 500 MB
+2026-02-11 10:06:38,883 - __main__ - INFO - [lifespan:334] Max Workers       : 2
+2026-02-11 10:06:38,883 - __main__ - INFO - [lifespan:335] Job Retention     : 24 hours
+2026-02-11 10:06:38,883 - __main__ - INFO - [lifespan:336] Allowed Extensions: 23 types
+2026-02-11 10:06:38,884 - __main__ - INFO - [lifespan:343] Output directory: Writable ✓
+2026-02-11 10:06:38,884 - __main__ - INFO - [lifespan:350] Thread pool initialized with 2 workers
+2026-02-11 10:06:38,884 - __main__ - INFO - [lifespan:358] ============================================================
+2026-02-11 10:06:38,884 - __main__ - INFO - [lifespan:359] API Ready. Accepting requests.
+2026-02-11 10:06:38,884 - __main__ - INFO - [lifespan:360] ============================================================
+2026-02-11 10:07:49,861 - __main__ - INFO - [lifespan:365] CustomOCR Pipeline API shutting down...
+2026-02-11 10:07:49,861 - __main__ - INFO - [periodic_job_cleanup:900] Periodic cleanup task cancelled
+2026-02-11 10:07:49,861 - __main__ - INFO - [lifespan:378] Thread pool shut down
+2026-02-11 10:07:49,861 - __main__ - INFO - [lifespan:380] Shutdown complete.
+2026-02-11 10:23:23,380 - __main__ - INFO - [lifespan:326] ============================================================
+2026-02-11 10:23:23,380 - __main__ - INFO - [lifespan:327] CustomOCR Pipeline API v2.2.0 starting...
+2026-02-11 10:23:23,380 - __main__ - INFO - [lifespan:328] ============================================================
+2026-02-11 10:23:23,380 - __main__ - INFO - [lifespan:331] Output Directory  : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output
+2026-02-11 10:23:23,380 - __main__ - INFO - [lifespan:332] Completed Dir     : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output/completed
+2026-02-11 10:23:23,380 - __main__ - INFO - [lifespan:333] Max Upload Size   : 500 MB
+2026-02-11 10:23:23,380 - __main__ - INFO - [lifespan:334] Max Workers       : 2
+2026-02-11 10:23:23,380 - __main__ - INFO - [lifespan:335] Job Retention     : 24 hours
+2026-02-11 10:23:23,380 - __main__ - INFO - [lifespan:336] Allowed Extensions: 23 types
+2026-02-11 10:23:23,380 - __main__ - INFO - [lifespan:343] Output directory: Writable ✓
+2026-02-11 10:23:23,381 - __main__ - INFO - [lifespan:350] Thread pool initialized with 2 workers
+2026-02-11 10:23:23,381 - __main__ - INFO - [lifespan:358] ============================================================
+2026-02-11 10:23:23,381 - __main__ - INFO - [lifespan:359] API Ready. Accepting requests.
+2026-02-11 10:23:23,381 - __main__ - INFO - [lifespan:360] ============================================================
+2026-02-11 10:31:14,683 - __main__ - INFO - [periodic_job_cleanup:900] Periodic cleanup task cancelled
+2026-02-11 10:31:17,743 - __main__ - INFO - [lifespan:326] ============================================================
+2026-02-11 10:31:17,743 - __main__ - INFO - [lifespan:327] CustomOCR Pipeline API v2.2.0 starting...
+2026-02-11 10:31:17,743 - __main__ - INFO - [lifespan:328] ============================================================
+2026-02-11 10:31:17,743 - __main__ - INFO - [lifespan:331] Output Directory  : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output
+2026-02-11 10:31:17,743 - __main__ - INFO - [lifespan:332] Completed Dir     : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output/completed
+2026-02-11 10:31:17,743 - __main__ - INFO - [lifespan:333] Max Upload Size   : 500 MB
+2026-02-11 10:31:17,743 - __main__ - INFO - [lifespan:334] Max Workers       : 2
+2026-02-11 10:31:17,743 - __main__ - INFO - [lifespan:335] Job Retention     : 24 hours
+2026-02-11 10:31:17,743 - __main__ - INFO - [lifespan:336] Allowed Extensions: 23 types
+2026-02-11 10:31:17,743 - __main__ - INFO - [lifespan:343] Output directory: Writable ✓
+2026-02-11 10:31:17,743 - __main__ - INFO - [lifespan:350] Thread pool initialized with 2 workers
+2026-02-11 10:31:17,743 - __main__ - INFO - [lifespan:358] ============================================================
+2026-02-11 10:31:17,743 - __main__ - INFO - [lifespan:359] API Ready. Accepting requests.
+2026-02-11 10:31:17,743 - __main__ - INFO - [lifespan:360] ============================================================
+2026-02-11 10:31:28,365 - __main__ - INFO - [lifespan:365] CustomOCR Pipeline API shutting down...
+2026-02-11 10:31:28,366 - __main__ - INFO - [periodic_job_cleanup:900] Periodic cleanup task cancelled
+2026-02-11 10:31:28,366 - __main__ - INFO - [lifespan:378] Thread pool shut down
+2026-02-11 10:31:28,366 - __main__ - INFO - [lifespan:380] Shutdown complete.
+2026-02-11 10:32:15,495 - __main__ - INFO - [lifespan:326] ============================================================
+2026-02-11 10:32:15,495 - __main__ - INFO - [lifespan:327] CustomOCR Pipeline API v2.2.0 starting...
+2026-02-11 10:32:15,495 - __main__ - INFO - [lifespan:328] ============================================================
+2026-02-11 10:32:15,495 - __main__ - INFO - [lifespan:331] Output Directory  : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output
+2026-02-11 10:32:15,495 - __main__ - INFO - [lifespan:332] Completed Dir     : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output/completed
+2026-02-11 10:32:15,495 - __main__ - INFO - [lifespan:333] Max Upload Size   : 500 MB
+2026-02-11 10:32:15,495 - __main__ - INFO - [lifespan:334] Max Workers       : 2
+2026-02-11 10:32:15,495 - __main__ - INFO - [lifespan:335] Job Retention     : 24 hours
+2026-02-11 10:32:15,495 - __main__ - INFO - [lifespan:336] Allowed Extensions: 23 types
+2026-02-11 10:32:15,495 - __main__ - INFO - [lifespan:343] Output directory: Writable ✓
+2026-02-11 10:32:15,495 - __main__ - INFO - [lifespan:350] Thread pool initialized with 2 workers
+2026-02-11 10:32:15,495 - __main__ - INFO - [lifespan:358] ============================================================
+2026-02-11 10:32:15,495 - __main__ - INFO - [lifespan:359] API Ready. Accepting requests.
+2026-02-11 10:32:15,495 - __main__ - INFO - [lifespan:360] ============================================================
+2026-02-11 10:33:17,016 - __main__ - INFO - [lifespan:365] CustomOCR Pipeline API shutting down...
+2026-02-11 10:33:17,017 - __main__ - INFO - [periodic_job_cleanup:900] Periodic cleanup task cancelled
+2026-02-11 10:33:17,017 - __main__ - INFO - [lifespan:378] Thread pool shut down
+2026-02-11 10:33:17,017 - __main__ - INFO - [lifespan:380] Shutdown complete.
+2026-02-11 10:40:39,505 - __main__ - INFO - [lifespan:326] ============================================================
+2026-02-11 10:40:39,505 - __main__ - INFO - [lifespan:327] CustomOCR Pipeline API v2.2.0 starting...
+2026-02-11 10:40:39,505 - __main__ - INFO - [lifespan:328] ============================================================
+2026-02-11 10:40:39,505 - __main__ - INFO - [lifespan:331] Output Directory  : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output
+2026-02-11 10:40:39,505 - __main__ - INFO - [lifespan:332] Completed Dir     : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output/completed
+2026-02-11 10:40:39,505 - __main__ - INFO - [lifespan:333] Max Upload Size   : 500 MB
+2026-02-11 10:40:39,505 - __main__ - INFO - [lifespan:334] Max Workers       : 2
+2026-02-11 10:40:39,505 - __main__ - INFO - [lifespan:335] Job Retention     : 24 hours
+2026-02-11 10:40:39,505 - __main__ - INFO - [lifespan:336] Allowed Extensions: 23 types
+2026-02-11 10:40:39,505 - __main__ - INFO - [lifespan:343] Output directory: Writable ✓
+2026-02-11 10:40:39,505 - __main__ - INFO - [lifespan:350] Thread pool initialized with 2 workers
+2026-02-11 10:40:39,505 - __main__ - INFO - [lifespan:358] ============================================================
+2026-02-11 10:40:39,505 - __main__ - INFO - [lifespan:359] API Ready. Accepting requests.
+2026-02-11 10:40:39,505 - __main__ - INFO - [lifespan:360] ============================================================
+2026-02-11 10:58:01,129 - __main__ - INFO - [periodic_job_cleanup:900] Periodic cleanup task cancelled
+2026-02-11 10:58:08,945 - __main__ - INFO - [lifespan:326] ============================================================
+2026-02-11 10:58:08,945 - __main__ - INFO - [lifespan:327] CustomOCR Pipeline API v2.2.0 starting...
+2026-02-11 10:58:08,945 - __main__ - INFO - [lifespan:328] ============================================================
+2026-02-11 10:58:08,945 - __main__ - INFO - [lifespan:331] Output Directory  : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output
+2026-02-11 10:58:08,945 - __main__ - INFO - [lifespan:332] Completed Dir     : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output/completed
+2026-02-11 10:58:08,945 - __main__ - INFO - [lifespan:333] Max Upload Size   : 500 MB
+2026-02-11 10:58:08,945 - __main__ - INFO - [lifespan:334] Max Workers       : 2
+2026-02-11 10:58:08,945 - __main__ - INFO - [lifespan:335] Job Retention     : 24 hours
+2026-02-11 10:58:08,945 - __main__ - INFO - [lifespan:336] Allowed Extensions: 23 types
+2026-02-11 10:58:08,945 - __main__ - INFO - [lifespan:343] Output directory: Writable ✓
+2026-02-11 10:58:08,945 - __main__ - INFO - [lifespan:350] Thread pool initialized with 2 workers
+2026-02-11 10:58:08,945 - __main__ - INFO - [lifespan:358] ============================================================
+2026-02-11 10:58:08,945 - __main__ - INFO - [lifespan:359] API Ready. Accepting requests.
+2026-02-11 10:58:08,945 - __main__ - INFO - [lifespan:360] ============================================================
+2026-02-11 10:58:19,366 - __main__ - INFO - [lifespan:365] CustomOCR Pipeline API shutting down...
+2026-02-11 10:58:19,366 - __main__ - INFO - [periodic_job_cleanup:900] Periodic cleanup task cancelled
+2026-02-11 10:58:19,366 - __main__ - INFO - [lifespan:378] Thread pool shut down
+2026-02-11 10:58:19,366 - __main__ - INFO - [lifespan:380] Shutdown complete.
+2026-02-11 10:58:59,655 - __main__ - INFO - [lifespan:326] ============================================================
+2026-02-11 10:58:59,655 - __main__ - INFO - [lifespan:327] CustomOCR Pipeline API v2.2.0 starting...
+2026-02-11 10:58:59,655 - __main__ - INFO - [lifespan:328] ============================================================
+2026-02-11 10:58:59,655 - __main__ - INFO - [lifespan:331] Output Directory  : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output
+2026-02-11 10:58:59,655 - __main__ - INFO - [lifespan:332] Completed Dir     : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output/completed
+2026-02-11 10:58:59,655 - __main__ - INFO - [lifespan:333] Max Upload Size   : 500 MB
+2026-02-11 10:58:59,655 - __main__ - INFO - [lifespan:334] Max Workers       : 2
+2026-02-11 10:58:59,655 - __main__ - INFO - [lifespan:335] Job Retention     : 24 hours
+2026-02-11 10:58:59,655 - __main__ - INFO - [lifespan:336] Allowed Extensions: 23 types
+2026-02-11 10:58:59,655 - __main__ - INFO - [lifespan:343] Output directory: Writable ✓
+2026-02-11 10:58:59,655 - __main__ - INFO - [lifespan:350] Thread pool initialized with 2 workers
+2026-02-11 10:58:59,655 - __main__ - INFO - [lifespan:358] ============================================================
+2026-02-11 10:58:59,655 - __main__ - INFO - [lifespan:359] API Ready. Accepting requests.
+2026-02-11 10:58:59,655 - __main__ - INFO - [lifespan:360] ============================================================
+2026-02-11 11:00:04,177 - __main__ - INFO - [process_document:672] [Job 61d8a23d9a125d06] Received: Reasons to use Nextcloud.pdf (0.93 MB)
+2026-02-11 11:00:11,439 - __main__ - ERROR - [process_ocr_pipeline:549] [Job 61d8a23d9a125d06] Failed at step 'initialization': module 'pyarrow' has no attribute '__version__'
+Traceback (most recent call last):
+  File "/home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/app.py", line 471, in process_ocr_pipeline
+    _load_pipeline_modules()
+  File "/home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/app.py", line 188, in _load_pipeline_modules
+    from DLA import DLA
+  File "/home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/DLA.py", line 12, in <module>
+    from paddleocr import LayoutDetection
+  File "/opt/conda/lib/python3.12/site-packages/paddleocr/__init__.py", line 15, in <module>
+    from paddlex.inference.utils.benchmark import benchmark
+  File "/opt/conda/lib/python3.12/site-packages/paddlex/__init__.py", line 49, in <module>
+    from .inference import create_pipeline, create_predictor
+  File "/opt/conda/lib/python3.12/site-packages/paddlex/inference/__init__.py", line 16, in <module>
+    from .models import create_predictor
+  File "/opt/conda/lib/python3.12/site-packages/paddlex/inference/models/__init__.py", line 26, in <module>
+    from .anomaly_detection import UadPredictor
+  File "/opt/conda/lib/python3.12/site-packages/paddlex/inference/models/anomaly_detection/__init__.py", line 15, in <module>
+    from .predictor import UadPredictor
+  File "/opt/conda/lib/python3.12/site-packages/paddlex/inference/models/anomaly_detection/predictor.py", line 19, in <module>
+    from ....modules.anomaly_detection.model_list import MODELS
+  File "/opt/conda/lib/python3.12/site-packages/paddlex/modules/__init__.py", line 91, in <module>
+    from .ts_anomaly_detection import (
+  File "/opt/conda/lib/python3.12/site-packages/paddlex/modules/ts_anomaly_detection/__init__.py", line 16, in <module>
+    from .dataset_checker import TSADDatasetChecker
+  File "/opt/conda/lib/python3.12/site-packages/paddlex/modules/ts_anomaly_detection/dataset_checker/__init__.py", line 26, in <module>
+    from .dataset_src import check, convert, deep_analyse, split_dataset
+  File "/opt/conda/lib/python3.12/site-packages/paddlex/modules/ts_anomaly_detection/dataset_checker/dataset_src/__init__.py", line 17, in <module>
+    from .check_dataset import check
+  File "/opt/conda/lib/python3.12/site-packages/paddlex/modules/ts_anomaly_detection/dataset_checker/dataset_src/check_dataset.py", line 20, in <module>
+    import pandas as pd
+  File "/opt/conda/lib/python3.12/site-packages/pandas/__init__.py", line 26, in <module>
+    from pandas.compat import (
+  File "/opt/conda/lib/python3.12/site-packages/pandas/compat/__init__.py", line 29, in <module>
+    from pandas.compat.pyarrow import (
+  File "/opt/conda/lib/python3.12/site-packages/pandas/compat/pyarrow.py", line 10, in <module>
+    _palv = Version(Version(pa.__version__).base_version)
+                            ^^^^^^^^^^^^^^
+AttributeError: module 'pyarrow' has no attribute '__version__'
+
+2026-02-11 11:00:11,439 - __main__ - INFO - [cleanup_job_directory:570] Cleaned up: 61d8a23d9a125d06
+2026-02-11 11:05:59,382 - __main__ - INFO - [lifespan:365] CustomOCR Pipeline API shutting down...
+2026-02-11 11:05:59,382 - __main__ - INFO - [periodic_job_cleanup:900] Periodic cleanup task cancelled
+2026-02-11 11:05:59,383 - __main__ - INFO - [lifespan:378] Thread pool shut down
+2026-02-11 11:05:59,383 - __main__ - INFO - [lifespan:380] Shutdown complete.
+2026-02-11 11:12:24,025 - __main__ - INFO - [lifespan:326] ============================================================
+2026-02-11 11:12:24,025 - __main__ - INFO - [lifespan:327] CustomOCR Pipeline API v2.2.0 starting...
+2026-02-11 11:12:24,025 - __main__ - INFO - [lifespan:328] ============================================================
+2026-02-11 11:12:24,025 - __main__ - INFO - [lifespan:331] Output Directory  : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output
+2026-02-11 11:12:24,025 - __main__ - INFO - [lifespan:332] Completed Dir     : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output/completed
+2026-02-11 11:12:24,025 - __main__ - INFO - [lifespan:333] Max Upload Size   : 500 MB
+2026-02-11 11:12:24,025 - __main__ - INFO - [lifespan:334] Max Workers       : 2
+2026-02-11 11:12:24,025 - __main__ - INFO - [lifespan:335] Job Retention     : 24 hours
+2026-02-11 11:12:24,025 - __main__ - INFO - [lifespan:336] Allowed Extensions: 23 types
+2026-02-11 11:12:24,025 - __main__ - INFO - [lifespan:343] Output directory: Writable ✓
+2026-02-11 11:12:24,025 - __main__ - INFO - [lifespan:350] Thread pool initialized with 2 workers
+2026-02-11 11:12:24,025 - __main__ - INFO - [lifespan:358] ============================================================
+2026-02-11 11:12:24,025 - __main__ - INFO - [lifespan:359] API Ready. Accepting requests.
+2026-02-11 11:12:24,025 - __main__ - INFO - [lifespan:360] ============================================================
+2026-02-11 11:13:10,762 - __main__ - INFO - [process_document:672] [Job ef39e207e6ad5f4c] Received: saudi_2030.pdf (0.06 MB)
+2026-02-11 11:13:18,800 - pikepdf._core - INFO - [<module>:13] pikepdf C++ to Python logger bridge initialized
+2026-02-11 11:13:18,813 - __main__ - INFO - [_load_pipeline_modules:201] All pipeline modules loaded successfully
+2026-02-11 11:13:18,814 - __main__ - INFO - [process_ocr_pipeline:479] [Job ef39e207e6ad5f4c] Starting pipeline with 38 workers
+2026-02-11 11:13:18,814 - __main__ - INFO - [process_ocr_pipeline:483] [Job ef39e207e6ad5f4c] Step 1/3 - Ingesting file...
+2026-02-11 11:13:18,814 - root - INFO - [_load_config:91] ✅ Loaded config from /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/resources/dla.vars.json
+2026-02-11 11:13:18,823 - root - INFO - [_register_fonts:111] ✅ Loaded font for Arabic support: /usr/share/fonts/truetype/dejavu/DejaVuSans.ttf
+2026-02-11 11:13:18,823 - root - INFO - [process_input:139] 📄 Processing PDF: saudi_2030.pdf
+2026-02-11 11:13:18,824 - root - INFO - [_pdf_to_images_fitz:253]    -> Extracting 3 pages...
+2026-02-11 11:13:19,207 - __main__ - INFO - [process_ocr_pipeline:496] [Job ef39e207e6ad5f4c] Step 2/3 - Analyzing document layout (3 pages)...
+2026-02-11 11:13:19,765 - __main__ - ERROR - [process_ocr_pipeline:549] [Job ef39e207e6ad5f4c] Failed at step 'layout_analysis': A dependency error occurred during predictor creation. Please refer to the installation documentation to ensure all required dependencies are installed.
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.12/site-packages/paddleocr/_models/base.py", line 76, in _create_paddlex_predictor
+    return create_predictor(
+           ^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/paddlex/inference/models/__init__.py", line 84, in create_predictor
+    return BasePredictor.get(model_name)(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/paddlex/inference/models/object_detection/predictor.py", line 70, in __init__
+    super().__init__(*args, **kwargs)
+  File "/opt/conda/lib/python3.12/site-packages/paddlex/inference/models/base/predictor/base_predictor.py", line 150, in __init__
+    self.batch_sampler = self._build_batch_sampler()
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/paddlex/inference/models/object_detection/predictor.py", line 115, in _build_batch_sampler
+    return ImageBatchSampler()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/paddlex/inference/common/batch_sampler/image_batch_sampler.py", line 51, in __init__
+    self.pdf_reader = PDFReader()
+                      ^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/paddlex/inference/utils/io/readers.py", line 102, in __init__
+    super().__init__(backend, **bk_args)
+  File "/opt/conda/lib/python3.12/site-packages/paddlex/inference/utils/io/readers.py", line 68, in __init__
+    self._backend = self.get_backend()
+                    ^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/paddlex/inference/utils/io/readers.py", line 78, in get_backend
+    return self._init_backend(self.bk_type, bk_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/paddlex/inference/utils/io/readers.py", line 111, in _init_backend
+    return PDFReaderBackend(**bk_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/paddlex/utils/deps.py", line 155, in _wrapper
+    require_deps(*cls._deps_, obj_name=cls.__name__)
+  File "/opt/conda/lib/python3.12/site-packages/paddlex/utils/deps.py", line 135, in require_deps
+    raise DependencyError(msg)
+paddlex.utils.deps.DependencyError: `PDFReaderBackend` is not ready for use, because the following dependencies are not available:
+opencv-contrib-python
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/app.py", line 500, in process_ocr_pipeline
+    dla = _dla_cls()
+          ^^^^^^^^^^
+  File "/home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/DLA.py", line 28, in __init__
+    self._init_paddle_model()
+  File "/home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/DLA.py", line 56, in _init_paddle_model
+    self.psession = LayoutDetection(model_name=model_name)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/paddleocr/_models/_object_detection.py", line 44, in __init__
+    super().__init__(**kwargs)
+  File "/opt/conda/lib/python3.12/site-packages/paddleocr/_models/base.py", line 46, in __init__
+    self.paddlex_predictor = self._create_paddlex_predictor()
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/paddleocr/_models/base.py", line 80, in _create_paddlex_predictor
+    raise RuntimeError(
+RuntimeError: A dependency error occurred during predictor creation. Please refer to the installation documentation to ensure all required dependencies are installed.
+
+2026-02-11 11:16:10,070 - __main__ - INFO - [lifespan:326] ============================================================
+2026-02-11 11:16:10,070 - __main__ - INFO - [lifespan:327] CustomOCR Pipeline API v2.2.0 starting...
+2026-02-11 11:16:10,070 - __main__ - INFO - [lifespan:328] ============================================================
+2026-02-11 11:16:10,070 - __main__ - INFO - [lifespan:331] Output Directory  : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output
+2026-02-11 11:16:10,070 - __main__ - INFO - [lifespan:332] Completed Dir     : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output/completed
+2026-02-11 11:16:10,070 - __main__ - INFO - [lifespan:333] Max Upload Size   : 500 MB
+2026-02-11 11:16:10,070 - __main__ - INFO - [lifespan:334] Max Workers       : 2
+2026-02-11 11:16:10,070 - __main__ - INFO - [lifespan:335] Job Retention     : 24 hours
+2026-02-11 11:16:10,070 - __main__ - INFO - [lifespan:336] Allowed Extensions: 23 types
+2026-02-11 11:16:10,070 - __main__ - INFO - [lifespan:343] Output directory: Writable ✓
+2026-02-11 11:16:10,070 - __main__ - INFO - [lifespan:350] Thread pool initialized with 2 workers
+2026-02-11 11:16:10,070 - __main__ - INFO - [lifespan:358] ============================================================
+2026-02-11 11:16:10,070 - __main__ - INFO - [lifespan:359] API Ready. Accepting requests.
+2026-02-11 11:16:10,070 - __main__ - INFO - [lifespan:360] ============================================================
+2026-02-11 11:16:45,704 - __main__ - INFO - [process_document:672] [Job 30adf8d573b351a8] Received: saudi_2030.pdf (0.06 MB)
+2026-02-11 11:16:53,463 - pikepdf._core - INFO - [<module>:13] pikepdf C++ to Python logger bridge initialized
+2026-02-11 11:16:53,476 - __main__ - INFO - [_load_pipeline_modules:201] All pipeline modules loaded successfully
+2026-02-11 11:16:53,477 - __main__ - INFO - [process_ocr_pipeline:479] [Job 30adf8d573b351a8] Starting pipeline with 38 workers
+2026-02-11 11:16:53,477 - __main__ - INFO - [process_ocr_pipeline:483] [Job 30adf8d573b351a8] Step 1/3 - Ingesting file...
+2026-02-11 11:16:53,477 - root - INFO - [_load_config:91] ✅ Loaded config from /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/resources/dla.vars.json
+2026-02-11 11:16:53,486 - root - INFO - [_register_fonts:111] ✅ Loaded font for Arabic support: /usr/share/fonts/truetype/dejavu/DejaVuSans.ttf
+2026-02-11 11:16:53,486 - root - INFO - [process_input:139] 📄 Processing PDF: saudi_2030.pdf
+2026-02-11 11:16:53,487 - root - INFO - [_pdf_to_images_fitz:253]    -> Extracting 3 pages...
+2026-02-11 11:16:53,870 - __main__ - INFO - [process_ocr_pipeline:496] [Job 30adf8d573b351a8] Step 2/3 - Analyzing document layout (3 pages)...
+2026-02-11 11:16:54,421 - __main__ - ERROR - [process_ocr_pipeline:549] [Job 30adf8d573b351a8] Failed at step 'layout_analysis': A dependency error occurred during predictor creation. Please refer to the installation documentation to ensure all required dependencies are installed.
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.12/site-packages/paddleocr/_models/base.py", line 76, in _create_paddlex_predictor
+    return create_predictor(
+           ^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/paddlex/inference/models/__init__.py", line 84, in create_predictor
+    return BasePredictor.get(model_name)(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/paddlex/inference/models/object_detection/predictor.py", line 70, in __init__
+    super().__init__(*args, **kwargs)
+  File "/opt/conda/lib/python3.12/site-packages/paddlex/inference/models/base/predictor/base_predictor.py", line 150, in __init__
+    self.batch_sampler = self._build_batch_sampler()
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/paddlex/inference/models/object_detection/predictor.py", line 115, in _build_batch_sampler
+    return ImageBatchSampler()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/paddlex/inference/common/batch_sampler/image_batch_sampler.py", line 51, in __init__
+    self.pdf_reader = PDFReader()
+                      ^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/paddlex/inference/utils/io/readers.py", line 102, in __init__
+    super().__init__(backend, **bk_args)
+  File "/opt/conda/lib/python3.12/site-packages/paddlex/inference/utils/io/readers.py", line 68, in __init__
+    self._backend = self.get_backend()
+                    ^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/paddlex/inference/utils/io/readers.py", line 78, in get_backend
+    return self._init_backend(self.bk_type, bk_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/paddlex/inference/utils/io/readers.py", line 111, in _init_backend
+    return PDFReaderBackend(**bk_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/paddlex/utils/deps.py", line 155, in _wrapper
+    require_deps(*cls._deps_, obj_name=cls.__name__)
+  File "/opt/conda/lib/python3.12/site-packages/paddlex/utils/deps.py", line 135, in require_deps
+    raise DependencyError(msg)
+paddlex.utils.deps.DependencyError: `PDFReaderBackend` is not ready for use, because the following dependencies are not available:
+opencv-contrib-python
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/app.py", line 500, in process_ocr_pipeline
+    dla = _dla_cls()
+          ^^^^^^^^^^
+  File "/home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/DLA.py", line 28, in __init__
+    self._init_paddle_model()
+  File "/home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/DLA.py", line 56, in _init_paddle_model
+    self.psession = LayoutDetection(model_name=model_name)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/paddleocr/_models/_object_detection.py", line 44, in __init__
+    super().__init__(**kwargs)
+  File "/opt/conda/lib/python3.12/site-packages/paddleocr/_models/base.py", line 46, in __init__
+    self.paddlex_predictor = self._create_paddlex_predictor()
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/paddleocr/_models/base.py", line 80, in _create_paddlex_predictor
+    raise RuntimeError(
+RuntimeError: A dependency error occurred during predictor creation. Please refer to the installation documentation to ensure all required dependencies are installed.
+
+2026-02-11 11:20:35,805 - __main__ - INFO - [lifespan:326] ============================================================
+2026-02-11 11:20:35,805 - __main__ - INFO - [lifespan:327] CustomOCR Pipeline API v2.2.0 starting...
+2026-02-11 11:20:35,805 - __main__ - INFO - [lifespan:328] ============================================================
+2026-02-11 11:20:35,806 - __main__ - INFO - [lifespan:331] Output Directory  : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output
+2026-02-11 11:20:35,806 - __main__ - INFO - [lifespan:332] Completed Dir     : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output/completed
+2026-02-11 11:20:35,806 - __main__ - INFO - [lifespan:333] Max Upload Size   : 500 MB
+2026-02-11 11:20:35,806 - __main__ - INFO - [lifespan:334] Max Workers       : 2
+2026-02-11 11:20:35,806 - __main__ - INFO - [lifespan:335] Job Retention     : 24 hours
+2026-02-11 11:20:35,806 - __main__ - INFO - [lifespan:336] Allowed Extensions: 23 types
+2026-02-11 11:20:35,806 - __main__ - INFO - [lifespan:343] Output directory: Writable ✓
+2026-02-11 11:20:35,806 - __main__ - INFO - [lifespan:350] Thread pool initialized with 2 workers
+2026-02-11 11:20:35,806 - __main__ - INFO - [lifespan:358] ============================================================
+2026-02-11 11:20:35,806 - __main__ - INFO - [lifespan:359] API Ready. Accepting requests.
+2026-02-11 11:20:35,806 - __main__ - INFO - [lifespan:360] ============================================================
+2026-02-11 11:21:06,963 - __main__ - INFO - [process_document:672] [Job 4e593873c38bb43b] Received: saudi_2030.pdf (0.06 MB)
+2026-02-11 11:21:12,643 - pikepdf._core - INFO - [<module>:13] pikepdf C++ to Python logger bridge initialized
+2026-02-11 11:21:12,656 - __main__ - INFO - [_load_pipeline_modules:201] All pipeline modules loaded successfully
+2026-02-11 11:21:12,656 - __main__ - INFO - [process_ocr_pipeline:479] [Job 4e593873c38bb43b] Starting pipeline with 38 workers
+2026-02-11 11:21:12,656 - __main__ - INFO - [process_ocr_pipeline:483] [Job 4e593873c38bb43b] Step 1/3 - Ingesting file...
+2026-02-11 11:21:12,657 - root - INFO - [_load_config:91] ✅ Loaded config from /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/resources/dla.vars.json
+2026-02-11 11:21:12,666 - root - INFO - [_register_fonts:111] ✅ Loaded font for Arabic support: /usr/share/fonts/truetype/dejavu/DejaVuSans.ttf
+2026-02-11 11:21:12,666 - root - INFO - [process_input:139] 📄 Processing PDF: saudi_2030.pdf
+2026-02-11 11:21:12,667 - root - INFO - [_pdf_to_images_fitz:253]    -> Extracting 3 pages...
+2026-02-11 11:21:13,049 - __main__ - INFO - [process_ocr_pipeline:496] [Job 4e593873c38bb43b] Step 2/3 - Analyzing document layout (3 pages)...
+2026-02-11 11:21:13,594 - __main__ - ERROR - [process_ocr_pipeline:549] [Job 4e593873c38bb43b] Failed at step 'layout_analysis': A dependency error occurred during predictor creation. Please refer to the installation documentation to ensure all required dependencies are installed.
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.12/site-packages/paddleocr/_models/base.py", line 76, in _create_paddlex_predictor
+    return create_predictor(
+           ^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/paddlex/inference/models/__init__.py", line 84, in create_predictor
+    return BasePredictor.get(model_name)(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/paddlex/inference/models/object_detection/predictor.py", line 70, in __init__
+    super().__init__(*args, **kwargs)
+  File "/opt/conda/lib/python3.12/site-packages/paddlex/inference/models/base/predictor/base_predictor.py", line 150, in __init__
+    self.batch_sampler = self._build_batch_sampler()
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/paddlex/inference/models/object_detection/predictor.py", line 115, in _build_batch_sampler
+    return ImageBatchSampler()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/paddlex/inference/common/batch_sampler/image_batch_sampler.py", line 51, in __init__
+    self.pdf_reader = PDFReader()
+                      ^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/paddlex/inference/utils/io/readers.py", line 102, in __init__
+    super().__init__(backend, **bk_args)
+  File "/opt/conda/lib/python3.12/site-packages/paddlex/inference/utils/io/readers.py", line 68, in __init__
+    self._backend = self.get_backend()
+                    ^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/paddlex/inference/utils/io/readers.py", line 78, in get_backend
+    return self._init_backend(self.bk_type, bk_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/paddlex/inference/utils/io/readers.py", line 111, in _init_backend
+    return PDFReaderBackend(**bk_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/paddlex/utils/deps.py", line 155, in _wrapper
+    require_deps(*cls._deps_, obj_name=cls.__name__)
+  File "/opt/conda/lib/python3.12/site-packages/paddlex/utils/deps.py", line 135, in require_deps
+    raise DependencyError(msg)
+paddlex.utils.deps.DependencyError: `PDFReaderBackend` is not ready for use, because the following dependencies are not available:
+opencv-contrib-python
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/app.py", line 500, in process_ocr_pipeline
+    dla = _dla_cls()
+          ^^^^^^^^^^
+  File "/home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/DLA.py", line 28, in __init__
+    self._init_paddle_model()
+  File "/home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/DLA.py", line 56, in _init_paddle_model
+    self.psession = LayoutDetection(model_name=model_name)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/paddleocr/_models/_object_detection.py", line 44, in __init__
+    super().__init__(**kwargs)
+  File "/opt/conda/lib/python3.12/site-packages/paddleocr/_models/base.py", line 46, in __init__
+    self.paddlex_predictor = self._create_paddlex_predictor()
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/paddleocr/_models/base.py", line 80, in _create_paddlex_predictor
+    raise RuntimeError(
+RuntimeError: A dependency error occurred during predictor creation. Please refer to the installation documentation to ensure all required dependencies are installed.
+
+2026-02-11 11:31:40,782 - __main__ - INFO - [lifespan:326] ============================================================
+2026-02-11 11:31:40,782 - __main__ - INFO - [lifespan:327] CustomOCR Pipeline API v2.2.0 starting...
+2026-02-11 11:31:40,782 - __main__ - INFO - [lifespan:328] ============================================================
+2026-02-11 11:31:40,782 - __main__ - INFO - [lifespan:331] Output Directory  : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output
+2026-02-11 11:31:40,782 - __main__ - INFO - [lifespan:332] Completed Dir     : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output/completed
+2026-02-11 11:31:40,782 - __main__ - INFO - [lifespan:333] Max Upload Size   : 500 MB
+2026-02-11 11:31:40,782 - __main__ - INFO - [lifespan:334] Max Workers       : 2
+2026-02-11 11:31:40,782 - __main__ - INFO - [lifespan:335] Job Retention     : 24 hours
+2026-02-11 11:31:40,782 - __main__ - INFO - [lifespan:336] Allowed Extensions: 23 types
+2026-02-11 11:31:40,782 - __main__ - INFO - [lifespan:343] Output directory: Writable ✓
+2026-02-11 11:31:40,782 - __main__ - INFO - [lifespan:350] Thread pool initialized with 2 workers
+2026-02-11 11:31:40,782 - __main__ - INFO - [lifespan:358] ============================================================
+2026-02-11 11:31:40,782 - __main__ - INFO - [lifespan:359] API Ready. Accepting requests.
+2026-02-11 11:31:40,782 - __main__ - INFO - [lifespan:360] ============================================================
+2026-02-11 11:32:10,330 - __main__ - INFO - [process_document:672] [Job 2a8b5e54dfe819b1] Received: Reasons to use Nextcloud.pdf (0.93 MB)
+2026-02-11 11:32:19,612 - pikepdf._core - INFO - [<module>:13] pikepdf C++ to Python logger bridge initialized
+2026-02-11 11:32:19,625 - __main__ - INFO - [_load_pipeline_modules:201] All pipeline modules loaded successfully
+2026-02-11 11:32:19,625 - __main__ - INFO - [process_ocr_pipeline:479] [Job 2a8b5e54dfe819b1] Starting pipeline with 38 workers
+2026-02-11 11:32:19,625 - __main__ - INFO - [process_ocr_pipeline:483] [Job 2a8b5e54dfe819b1] Step 1/3 - Ingesting file...
+2026-02-11 11:32:19,626 - root - INFO - [_load_config:91] ✅ Loaded config from /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/resources/dla.vars.json
+2026-02-11 11:32:19,634 - root - INFO - [_register_fonts:111] ✅ Loaded font for Arabic support: /usr/share/fonts/truetype/dejavu/DejaVuSans.ttf
+2026-02-11 11:32:19,635 - root - INFO - [process_input:139] 📄 Processing PDF: Reasons to use Nextcloud.pdf
+2026-02-11 11:32:19,637 - root - INFO - [_pdf_to_images_fitz:253]    -> Extracting 8 pages...
+2026-02-11 11:32:22,163 - __main__ - INFO - [process_ocr_pipeline:496] [Job 2a8b5e54dfe819b1] Step 2/3 - Analyzing document layout (8 pages)...
+2026-02-11 11:37:23,200 - __main__ - INFO - [lifespan:326] ============================================================
+2026-02-11 11:37:23,200 - __main__ - INFO - [lifespan:327] CustomOCR Pipeline API v2.2.0 starting...
+2026-02-11 11:37:23,200 - __main__ - INFO - [lifespan:328] ============================================================
+2026-02-11 11:37:23,200 - __main__ - INFO - [lifespan:331] Output Directory  : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output
+2026-02-11 11:37:23,200 - __main__ - INFO - [lifespan:332] Completed Dir     : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output/completed
+2026-02-11 11:37:23,200 - __main__ - INFO - [lifespan:333] Max Upload Size   : 500 MB
+2026-02-11 11:37:23,200 - __main__ - INFO - [lifespan:334] Max Workers       : 2
+2026-02-11 11:37:23,200 - __main__ - INFO - [lifespan:335] Job Retention     : 24 hours
+2026-02-11 11:37:23,200 - __main__ - INFO - [lifespan:336] Allowed Extensions: 23 types
+2026-02-11 11:37:23,201 - __main__ - INFO - [lifespan:343] Output directory: Writable ✓
+2026-02-11 11:37:23,201 - __main__ - INFO - [lifespan:350] Thread pool initialized with 2 workers
+2026-02-11 11:37:23,201 - __main__ - INFO - [lifespan:358] ============================================================
+2026-02-11 11:37:23,201 - __main__ - INFO - [lifespan:359] API Ready. Accepting requests.
+2026-02-11 11:37:23,201 - __main__ - INFO - [lifespan:360] ============================================================
+2026-02-11 11:37:59,770 - __main__ - INFO - [lifespan:365] CustomOCR Pipeline API shutting down...
+2026-02-11 11:37:59,770 - __main__ - INFO - [periodic_job_cleanup:900] Periodic cleanup task cancelled
+2026-02-11 11:37:59,770 - __main__ - INFO - [lifespan:378] Thread pool shut down
+2026-02-11 11:37:59,770 - __main__ - INFO - [lifespan:380] Shutdown complete.
+2026-02-11 11:38:02,312 - __main__ - INFO - [lifespan:326] ============================================================
+2026-02-11 11:38:02,312 - __main__ - INFO - [lifespan:327] CustomOCR Pipeline API v2.2.0 starting...
+2026-02-11 11:38:02,312 - __main__ - INFO - [lifespan:328] ============================================================
+2026-02-11 11:38:02,312 - __main__ - INFO - [lifespan:331] Output Directory  : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output
+2026-02-11 11:38:02,312 - __main__ - INFO - [lifespan:332] Completed Dir     : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output/completed
+2026-02-11 11:38:02,312 - __main__ - INFO - [lifespan:333] Max Upload Size   : 500 MB
+2026-02-11 11:38:02,312 - __main__ - INFO - [lifespan:334] Max Workers       : 2
+2026-02-11 11:38:02,312 - __main__ - INFO - [lifespan:335] Job Retention     : 24 hours
+2026-02-11 11:38:02,313 - __main__ - INFO - [lifespan:336] Allowed Extensions: 23 types
+2026-02-11 11:38:02,313 - __main__ - INFO - [lifespan:343] Output directory: Writable ✓
+2026-02-11 11:38:02,313 - __main__ - INFO - [lifespan:350] Thread pool initialized with 2 workers
+2026-02-11 11:38:02,313 - __main__ - INFO - [lifespan:358] ============================================================
+2026-02-11 11:38:02,313 - __main__ - INFO - [lifespan:359] API Ready. Accepting requests.
+2026-02-11 11:38:02,313 - __main__ - INFO - [lifespan:360] ============================================================
+2026-02-11 11:45:52,997 - __main__ - INFO - [lifespan:365] CustomOCR Pipeline API shutting down...
+2026-02-11 11:45:52,997 - __main__ - INFO - [periodic_job_cleanup:900] Periodic cleanup task cancelled
+2026-02-11 11:45:52,997 - __main__ - INFO - [lifespan:378] Thread pool shut down
+2026-02-11 11:45:52,997 - __main__ - INFO - [lifespan:380] Shutdown complete.
+2026-02-11 11:45:58,628 - __main__ - INFO - [lifespan:326] ============================================================
+2026-02-11 11:45:58,628 - __main__ - INFO - [lifespan:327] CustomOCR Pipeline API v2.2.0 starting...
+2026-02-11 11:45:58,628 - __main__ - INFO - [lifespan:328] ============================================================
+2026-02-11 11:45:58,628 - __main__ - INFO - [lifespan:331] Output Directory  : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output
+2026-02-11 11:45:58,628 - __main__ - INFO - [lifespan:332] Completed Dir     : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output/completed
+2026-02-11 11:45:58,628 - __main__ - INFO - [lifespan:333] Max Upload Size   : 500 MB
+2026-02-11 11:45:58,628 - __main__ - INFO - [lifespan:334] Max Workers       : 2
+2026-02-11 11:45:58,628 - __main__ - INFO - [lifespan:335] Job Retention     : 24 hours
+2026-02-11 11:45:58,628 - __main__ - INFO - [lifespan:336] Allowed Extensions: 23 types
+2026-02-11 11:45:58,628 - __main__ - INFO - [lifespan:343] Output directory: Writable ✓
+2026-02-11 11:45:58,628 - __main__ - INFO - [lifespan:350] Thread pool initialized with 2 workers
+2026-02-11 11:45:58,628 - __main__ - INFO - [lifespan:358] ============================================================
+2026-02-11 11:45:58,628 - __main__ - INFO - [lifespan:359] API Ready. Accepting requests.
+2026-02-11 11:45:58,628 - __main__ - INFO - [lifespan:360] ============================================================
+2026-02-11 11:46:31,068 - __main__ - INFO - [process_document:672] [Job 7a76a30845240f49] Received: saudi_2030.pdf (0.06 MB)
+2026-02-11 11:46:38,726 - pikepdf._core - INFO - [<module>:13] pikepdf C++ to Python logger bridge initialized
+2026-02-11 11:46:38,739 - __main__ - INFO - [_load_pipeline_modules:201] All pipeline modules loaded successfully
+2026-02-11 11:46:38,739 - __main__ - INFO - [process_ocr_pipeline:479] [Job 7a76a30845240f49] Starting pipeline with 38 workers
+2026-02-11 11:46:38,739 - __main__ - INFO - [process_ocr_pipeline:483] [Job 7a76a30845240f49] Step 1/3 - Ingesting file...
+2026-02-11 11:46:38,739 - root - INFO - [_load_config:91] ✅ Loaded config from /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/resources/dla.vars.json
+2026-02-11 11:46:38,748 - root - INFO - [_register_fonts:111] ✅ Loaded font for Arabic support: /usr/share/fonts/truetype/dejavu/DejaVuSans.ttf
+2026-02-11 11:46:38,748 - root - INFO - [process_input:139] 📄 Processing PDF: saudi_2030.pdf
+2026-02-11 11:46:38,749 - root - INFO - [_pdf_to_images_fitz:253]    -> Extracting 3 pages...
+2026-02-11 11:46:39,131 - __main__ - INFO - [process_ocr_pipeline:496] [Job 7a76a30845240f49] Step 2/3 - Analyzing document layout (3 pages)...
