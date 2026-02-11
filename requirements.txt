@@ -88,12 +88,10 @@ regex==2025.11.3
 ftfy==6.3.1
 
 # --- AI / ML Frameworks ---
-numpy==1.26.4
-scipy==1.13.1
-scikit-learn==1.5.2
-pandas==2.2.2
-pyarrow==15.0.2
-
+numpy==2.2.4
+scipy==1.16.3
+scikit-learn==1.8.0
+pandas==2.3.3
 einops==0.8.1
 safetensors==0.7.0
 opt-einsum==3.3.0
