@@ -32,7 +32,7 @@ RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir --no-deps paddleocr==3.3.2 && \
     pip uninstall -y opencv-python opencv-contrib-python 2>/dev/null; true && \
     pip install --no-cache-dir --no-deps \
-        opencv-python-headless==4.12.0.88 \
+        opencv-python-headless==4.10.0.84 \
         opencv-contrib-python-headless==4.10.0.84
 
 # Copy application
