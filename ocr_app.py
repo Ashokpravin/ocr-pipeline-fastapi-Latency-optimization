@@ -1,85 +1,105 @@
 """
-
 ================================================================================
-
-CustomOCR Pipeline API (Production-Hardened v2.2.0)
-
+CustomOCR Pipeline API (Production-Hardened v2.4.0)
 ================================================================================
-
-
 DESCRIPTION:
-
     Asynchronous document-to-markdown conversion API. Accepts PDF, Office docs,
-
-    and images, processes them through a 3-stage pipeline (Layout Analysis → 
-
+    and images, processes them through a 3-stage pipeline (Layout Analysis →
     Masking → OCR), and produces clean, structured Markdown output.
 
+AUTHENTICATION:
+    All endpoints (except /health and /) require a valid Bearer token.
+    Tokens are created via Katonic Platform → AI Studio → API Management.
+
+    Two validation modes (tried in order):
+      1. JWT Validation  — Decodes the Katonic JWT, checks expiry & structure.
+                           Works for ALL tokens created on the platform.
+                           Optionally verifies signature if JWT_SECRET is set.
+      2. Static Fallback — Matches against API_AUTH_TOKENS env var
+                           (comma-separated list of accepted tokens).
 
 WORKFLOW:
-
-    1. Client uploads file via POST /process
-
+    1. Client uploads file via POST /process (with Bearer token)
     2. API returns job_id immediately (non-blocking)
-
     3. Background worker processes: Ingestion → DLA → PageProcessor
-
     4. Client polls GET /job/{job_id} for status
-
     5. Client downloads result via GET /download/{job_id}
 
-
 CONFIGURATION (Environment Variables):
-
-    OCR_OUTPUT_DIR      : Output directory path (default: ./output)
-
-    MAX_UPLOAD_SIZE_MB  : Maximum upload size in MB (default: 500)
-
-    JOB_RETENTION_HOURS : Hours to keep job records (default: 24)
-
-    MAX_WORKERS         : Background processing threads (default: 2)
-
+    JWT_SECRET           : Optional. Katonic JWT signing secret for full
+                           signature verification. If not set, JWT is decoded
+                           without signature check (expiry still validated).
+    API_AUTH_TOKENS      : Optional. Comma-separated list of static tokens
+                           accepted as fallback (e.g. for service accounts).
+    OCR_OUTPUT_DIR       : Output directory path (default: ./output)
+    MAX_UPLOAD_SIZE_MB   : Maximum upload size in MB (default: 500)
+    JOB_RETENTION_HOURS  : Hours to keep job records (default: 24)
+    MAX_WORKERS          : Background processing threads (default: 2)
 
 DEPENDENCIES:
-
+    - PyJWT (pip install PyJWT) — for JWT decoding/validation
     - FileIngestor: Converts input files to page images
-
     - DLA: Document Layout Analysis (detects tables, figures)
-
     - PageProcessor: Masking, OCR, and markdown generation
-
-
 ================================================================================
-
 """
-
 
 import os
 import sys
 import re
+import json
 import shutil
 import logging
 import secrets
 import uvicorn
 import asyncio
 import traceback
+import base64
+import time
 from pathlib import Path
-from typing import Optional, Dict, Any, Set
+from typing import Optional, Dict, Any, Set, List, Tuple
 from datetime import datetime, timedelta
 from concurrent.futures import ThreadPoolExecutor, Future
 from contextlib import asynccontextmanager
 
 # FastAPI imports
-from fastapi import FastAPI, HTTPException, File, UploadFile, BackgroundTasks, Request
+from fastapi import (
+    FastAPI, HTTPException, File, UploadFile, BackgroundTasks,
+    Request, Depends, Security
+)
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, FileResponse
+from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from pydantic import BaseModel
 import aiofiles
+
+# JWT library (optional but recommended)
+try:
+    import jwt as pyjwt  # PyJWT
+    HAS_PYJWT = True
+except ImportError:
+    HAS_PYJWT = False
 
 
 # =============================================================================
 # CONFIGURATION (Environment Variables with Sensible Defaults)
 # =============================================================================
+
+# --- AUTHENTICATION ---
+# JWT signing secret from Katonic platform (optional but recommended)
+# If set, JWT signature is fully verified. If not, only expiry is checked.
+JWT_SECRET = os.getenv("JWT_SECRET", "")
+
+# JWT algorithm(s) to accept (default covers Katonic's typical HS256)
+JWT_ALGORITHMS = os.getenv("JWT_ALGORITHMS", "HS256").split(",")
+
+# Static fallback tokens (comma-separated). Accepted alongside JWT validation.
+# Also reads legacy API_AUTH_TOKEN (singular) for backward compatibility.
+# Example: export API_AUTH_TOKENS="token1,token2,token3"
+API_AUTH_TOKENS_RAW = os.getenv("API_AUTH_TOKENS", os.getenv("API_AUTH_TOKEN", ""))
+STATIC_AUTH_TOKENS: Set[str] = {
+    t.strip() for t in API_AUTH_TOKENS_RAW.split(",") if t.strip()
+}
 
 # Output directory - where all processing happens
 BASE_OUTPUT_DIR = Path(os.getenv("OCR_OUTPUT_DIR", "./output")).resolve()
@@ -109,7 +129,6 @@ ALLOWED_EXTENSIONS: Set[str] = {
 # DIRECTORY SETUP
 # =============================================================================
 
-# Create output directories
 BASE_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 COMPLETED_DIR = BASE_OUTPUT_DIR / "completed"
 COMPLETED_DIR.mkdir(exist_ok=True)
@@ -134,21 +153,236 @@ logger = logging.getLogger(__name__)
 # GLOBAL STATE
 # =============================================================================
 
-# Thread pool for CPU-intensive pipeline tasks
 executor: Optional[ThreadPoolExecutor] = None
-
-# In-memory job tracking (auto-cleaned periodically)
 job_status: Dict[str, Dict[str, Any]] = {}
-
-# Track background cleanup task for proper shutdown
 _cleanup_task: Optional[asyncio.Task] = None
+
+
+# =============================================================================
+# JWT TOKEN VALIDATION
+# =============================================================================
+
+def _base64_decode_jwt_segment(segment: str) -> dict:
+    """
+    Manually decode a single JWT base64url segment to JSON dict.
+    Used as fallback when PyJWT is not installed.
+    """
+    # Add padding if needed (JWT uses base64url without padding)
+    padding = 4 - len(segment) % 4
+    if padding != 4:
+        segment += "=" * padding
+    decoded_bytes = base64.urlsafe_b64decode(segment)
+    return json.loads(decoded_bytes)
+
+
+def validate_jwt_token(token: str) -> Tuple[bool, str, Optional[dict]]:
+    """
+    Validate a Katonic platform JWT token.
+
+    Tries two methods:
+      1. PyJWT library (if installed) — full decode + optional signature check
+      2. Manual base64 decode fallback — checks structure + expiry
+
+    Args:
+        token: The raw JWT string (e.g. "eyJhbGci...")
+
+    Returns:
+        Tuple of (is_valid, reason_message, decoded_payload_or_None)
+    """
+
+    # ---- METHOD 1: Using PyJWT library ----
+    if HAS_PYJWT:
+        try:
+            if JWT_SECRET:
+                # Full verification with signature check
+                payload = pyjwt.decode(
+                    token,
+                    JWT_SECRET,
+                    algorithms=JWT_ALGORITHMS,
+                    options={"verify_exp": True}
+                )
+            else:
+                # Decode WITHOUT signature verification, but still check expiry
+                # This is the mode when JWT_SECRET is not configured
+                payload = pyjwt.decode(
+                    token,
+                    options={
+                        "verify_signature": False,
+                        "verify_exp": True
+                    },
+                    algorithms=JWT_ALGORITHMS
+                )
+
+            # Successfully decoded
+            sub = payload.get("sub", "unknown")
+            exp = payload.get("exp")
+            logger.info(f"JWT validated successfully — sub: {sub}, exp: {exp}")
+            return True, "JWT token valid", payload
+
+        except pyjwt.ExpiredSignatureError:
+            return False, "Token has expired. Please create a new token in Katonic AI Studio → API Management.", None
+        except pyjwt.InvalidSignatureError:
+            return False, "Invalid token signature. Token may be tampered with.", None
+        except pyjwt.DecodeError as e:
+            # Not a valid JWT — might be a static token, return False so
+            # the caller can try static token matching
+            return False, f"Not a valid JWT format: {e}", None
+        except pyjwt.InvalidTokenError as e:
+            return False, f"Invalid token: {e}", None
+        except Exception as e:
+            logger.warning(f"Unexpected JWT validation error: {e}")
+            return False, f"Token validation error: {e}", None
+
+    # ---- METHOD 2: Manual fallback (no PyJWT installed) ----
+    else:
+        try:
+            parts = token.split(".")
+            if len(parts) != 3:
+                return False, "Not a valid JWT format (expected 3 parts)", None
+
+            # Decode header
+            header = _base64_decode_jwt_segment(parts[0])
+            if "alg" not in header:
+                return False, "Invalid JWT header (missing 'alg')", None
+
+            # Decode payload
+            payload = _base64_decode_jwt_segment(parts[1])
+
+            # Check expiry
+            exp = payload.get("exp")
+            if exp is not None:
+                if time.time() > exp:
+                    return False, "Token has expired. Please create a new token in Katonic AI Studio → API Management.", None
+
+            sub = payload.get("sub", "unknown")
+            logger.info(f"JWT validated (manual decode) — sub: {sub}, exp: {exp}")
+            logger.warning(
+                "PyJWT not installed — JWT signature NOT verified. "
+                "Install PyJWT for full security: pip install PyJWT"
+            )
+            return True, "JWT token valid (signature not verified — install PyJWT)", payload
+
+        except (json.JSONDecodeError, UnicodeDecodeError, Exception) as e:
+            return False, f"Not a valid JWT: {e}", None
+
+
+def validate_token_comprehensive(token: str) -> str:
+    """
+    Master validation function. Tries methods in order:
+      1. JWT validation (works for ALL Katonic platform tokens)
+      2. Static token matching (fallback for manually set tokens)
+
+    Returns the validated token string on success.
+    Raises HTTPException on failure.
+    """
+    errors = []
+
+    # --- Attempt 1: JWT Validation ---
+    jwt_valid, jwt_message, jwt_payload = validate_jwt_token(token)
+    if jwt_valid:
+        return token
+
+    # Only record JWT error if it looked like a JWT (has dots)
+    if "." in token:
+        errors.append(f"JWT: {jwt_message}")
+
+    # --- Attempt 2: Static Token Matching ---
+    if STATIC_AUTH_TOKENS:
+        for valid_token in STATIC_AUTH_TOKENS:
+            if secrets.compare_digest(token, valid_token):
+                logger.info("Token validated via static token match")
+                return token
+        errors.append("Static: Token does not match any configured static tokens")
+
+    # --- Both methods failed ---
+    if not STATIC_AUTH_TOKENS and not HAS_PYJWT and "." not in token:
+        # No JWT library, no static tokens, and token isn't JWT-shaped
+        logger.error(
+            "No validation method available! "
+            "Set API_AUTH_TOKENS env var or install PyJWT (pip install PyJWT)"
+        )
+        raise HTTPException(
+            status_code=503,
+            detail=(
+                "Authentication not properly configured on server. "
+                "Contact administrator to install PyJWT or set API_AUTH_TOKENS."
+            )
+        )
+
+    # Log the failure details
+    error_detail = " | ".join(errors) if errors else "Token validation failed"
+    logger.warning(f"Authentication failed: {error_detail}")
+
+    raise HTTPException(
+        status_code=401,
+        detail=(
+            "Invalid or expired token. "
+            "Please check your API token from Katonic AI Studio → API Management. "
+            "If you just created a new token, ensure it has not expired."
+        ),
+        headers={"WWW-Authenticate": "Bearer"}
+    )
+
+
+# =============================================================================
+# AUTHENTICATION SETUP (Swagger UI "Authorize" button)
+# =============================================================================
+
+security_scheme = HTTPBearer(
+    scheme_name="Bearer Token",
+    description=(
+        "Enter the API token created in **Katonic Platform → AI Studio → API Management**.\n\n"
+        "**Format:** Paste your token directly (the `Bearer` prefix is added automatically).\n\n"
+        "All tokens created on the Katonic platform are automatically accepted — "
+        "no need to update server configuration for new tokens.\n\n"
+        "**How it works:** The API validates the JWT structure and expiry of your "
+        "Katonic token. Any valid, non-expired Katonic token will work."
+    ),
+    auto_error=True
+)
+
+
+def verify_token(
+    credentials: HTTPAuthorizationCredentials = Security(security_scheme)
+) -> str:
+    """
+    FastAPI dependency that validates the Bearer token.
+
+    Injected into every protected endpoint via Depends(verify_token).
+    In Swagger UI, clicking "Authorize" and entering the token will
+    automatically include it in all subsequent requests.
+
+    Validates using:
+      1. JWT decode + expiry check (works for ALL Katonic tokens)
+      2. Static token fallback (API_AUTH_TOKENS env var)
+
+    Returns:
+        The validated token string.
+
+    Raises:
+        HTTPException 401: Invalid/expired token.
+        HTTPException 503: No authentication method configured.
+    """
+    token = credentials.credentials
+
+    # Strip any accidental whitespace or "Bearer " prefix if user pasted it
+    token = token.strip()
+    if token.lower().startswith("bearer "):
+        token = token[7:].strip()
+
+    if not token:
+        raise HTTPException(
+            status_code=401,
+            detail="Empty token provided. Please enter your Katonic API token.",
+            headers={"WWW-Authenticate": "Bearer"}
+        )
+
+    return validate_token_comprehensive(token)
 
 
 # =============================================================================
 # LAZY IMPORTS FOR PIPELINE MODULES
 # =============================================================================
-# [CHANGE] Lazy-load heavy pipeline modules so the API starts fast and
-# import errors are caught gracefully instead of crashing the entire server.
 
 _file_ingestor_cls = None
 _dla_cls = None
@@ -160,14 +394,12 @@ _cleanup_resource = None
 def _load_pipeline_modules():
     """
     Lazily import heavy pipeline modules on first use.
-    This prevents import-time crashes if a dependency is missing,
-    and speeds up API startup.
     """
     global _file_ingestor_cls, _dla_cls, _page_processor_cls
     global _get_optimal_worker_count, _cleanup_resource
 
     if _file_ingestor_cls is not None:
-        return  # Already loaded
+        return
 
     try:
         from utils import get_optimal_worker_count, cleanup_resource
@@ -210,22 +442,15 @@ def sanitize_filename(filename: str) -> str:
     Removes potentially dangerous characters from filename.
     Prevents path traversal attacks and filesystem issues.
     """
-    # Remove path separators and null bytes
     filename = os.path.basename(filename)
     filename = filename.replace("\x00", "")
-
-    # Replace problematic characters with underscore
     filename = re.sub(r'[<>:"/\\|?*\x00-\x1f]', '_', filename)
-
-    # [CHANGE] Remove leading/trailing dots and spaces (Windows safety + hidden file prevention)
     filename = filename.strip('. ')
 
-    # Limit length (filesystem safety)
     name, ext = os.path.splitext(filename)
     if len(name) > 200:
         name = name[:200]
 
-    # [CHANGE] Fallback if filename becomes empty after sanitization
     if not name:
         name = f"upload_{secrets.token_hex(4)}"
 
@@ -237,18 +462,15 @@ def validate_file(file: UploadFile, content_length: int) -> None:
     Validates uploaded file before processing.
     Raises HTTPException if validation fails.
     """
-    # [CHANGE] Check for zero-byte files
     if content_length == 0:
         raise HTTPException(status_code=400, detail="Empty file uploaded. File must have content.")
 
-    # Check file size
     if content_length > MAX_UPLOAD_SIZE_BYTES:
         raise HTTPException(
-            status_code=413,  # [CHANGE] Use proper 413 status code for payload too large
+            status_code=413,
             detail=f"File too large ({content_length / 1024 / 1024:.1f}MB). Maximum size: {MAX_UPLOAD_SIZE_MB}MB"
         )
 
-    # Check file extension
     if not file.filename:
         raise HTTPException(status_code=400, detail="Filename is required")
 
@@ -262,7 +484,7 @@ def validate_file(file: UploadFile, content_length: int) -> None:
 
 def validate_job_id(job_id: str) -> None:
     """
-    [NEW] Validate job_id format to prevent injection/path traversal attacks.
+    Validate job_id format to prevent injection/path traversal attacks.
     Job IDs are always 16-char hex strings generated by secrets.token_hex(8).
     """
     if not job_id or not re.fullmatch(r'[a-f0-9]{16}', job_id):
@@ -283,7 +505,6 @@ def cleanup_old_jobs() -> int:
 
     for job_id in expired_jobs:
         job_info = job_status[job_id]
-        # [CHANGE] Also clean up result files for expired jobs
         result_path = job_info.get("result_path")
         if result_path and os.path.exists(result_path):
             try:
@@ -291,7 +512,6 @@ def cleanup_old_jobs() -> int:
                 logger.info(f"Removed expired result file: {result_path}")
             except OSError as e:
                 logger.warning(f"Failed to remove expired result file {result_path}: {e}")
-
         del job_status[job_id]
 
     if expired_jobs:
@@ -301,7 +521,7 @@ def cleanup_old_jobs() -> int:
 
 
 # =============================================================================
-# FASTAPI APPLICATION SETUP (Using Lifespan - modern pattern)
+# FASTAPI APPLICATION SETUP
 # =============================================================================
 
 def detect_root_path() -> str:
@@ -316,7 +536,6 @@ def detect_root_path() -> str:
     return ""
 
 
-# [CHANGE] Use modern lifespan context manager instead of deprecated on_event
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Application lifespan: startup and shutdown logic."""
@@ -324,28 +543,46 @@ async def lifespan(app: FastAPI):
 
     # --- STARTUP ---
     logger.info("=" * 60)
-    logger.info("CustomOCR Pipeline API v2.2.0 starting...")
+    logger.info("CustomOCR Pipeline API v2.4.0 starting...")
     logger.info("=" * 60)
 
     # Log configuration
-    logger.info(f"Output Directory  : {BASE_OUTPUT_DIR}")
-    logger.info(f"Completed Dir     : {COMPLETED_DIR}")
-    logger.info(f"Max Upload Size   : {MAX_UPLOAD_SIZE_MB} MB")
-    logger.info(f"Max Workers       : {MAX_WORKERS}")
-    logger.info(f"Job Retention     : {JOB_RETENTION_HOURS} hours")
+    logger.info(f"Output Directory : {BASE_OUTPUT_DIR}")
+    logger.info(f"Completed Dir    : {COMPLETED_DIR}")
+    logger.info(f"Max Upload Size  : {MAX_UPLOAD_SIZE_MB} MB")
+    logger.info(f"Max Workers      : {MAX_WORKERS}")
+    logger.info(f"Job Retention    : {JOB_RETENTION_HOURS} hours")
     logger.info(f"Allowed Extensions: {len(ALLOWED_EXTENSIONS)} types")
+
+    # Log authentication configuration
+    logger.info("-" * 40)
+    logger.info("AUTHENTICATION CONFIG:")
+    logger.info(f"  PyJWT installed   : {'Yes' if HAS_PYJWT else 'No (install with: pip install PyJWT)'}")
+    logger.info(f"  JWT Secret        : {'Configured (full signature verification)' if JWT_SECRET else 'Not set (expiry-only validation)'}")
+    logger.info(f"  Static tokens     : {len(STATIC_AUTH_TOKENS)} configured")
+    logger.info(f"  JWT Algorithms    : {JWT_ALGORITHMS}")
+
+    if HAS_PYJWT:
+        logger.info("  -> JWT validation enabled: ALL Katonic platform tokens accepted automatically")
+    elif STATIC_AUTH_TOKENS:
+        logger.info("  -> Static token validation only. Install PyJWT for automatic Katonic token support.")
+    else:
+        logger.warning("  WARNING: NO authentication method available!")
+        logger.warning("    Install PyJWT (pip install PyJWT) to validate Katonic tokens,")
+        logger.warning("    or set API_AUTH_TOKENS environment variable for static token auth.")
+    logger.info("-" * 40)
 
     # Verify output directory is writable
     try:
         test_file = BASE_OUTPUT_DIR / ".write_test"
         test_file.touch()
         test_file.unlink()
-        logger.info("Output directory: Writable ✓")
+        logger.info("Output directory: Writable")
     except Exception as e:
         logger.error(f"Output directory not writable: {e}")
         raise RuntimeError(f"Cannot write to output directory: {BASE_OUTPUT_DIR}")
 
-    # Initialize thread pool executor
+    # Initialize thread pool
     executor = ThreadPoolExecutor(max_workers=MAX_WORKERS)
     logger.info(f"Thread pool initialized with {MAX_WORKERS} workers")
 
@@ -359,12 +596,11 @@ async def lifespan(app: FastAPI):
     logger.info("API Ready. Accepting requests.")
     logger.info("=" * 60)
 
-    yield  # Application is running
+    yield
 
     # --- SHUTDOWN ---
     logger.info("CustomOCR Pipeline API shutting down...")
 
-    # Cancel periodic cleanup task
     if _cleanup_task and not _cleanup_task.done():
         _cleanup_task.cancel()
         try:
@@ -372,7 +608,6 @@ async def lifespan(app: FastAPI):
         except asyncio.CancelledError:
             pass
 
-    # Shutdown thread pool gracefully
     if executor:
         executor.shutdown(wait=True, cancel_futures=False)
         logger.info("Thread pool shut down")
@@ -385,9 +620,18 @@ app = FastAPI(
     description=(
         "Production-grade OCR pipeline with Layout Analysis, Masking, and Enrichment. "
         "Upload documents (PDF, Office, Images) and receive structured Markdown output. "
-        "All processing is asynchronous — returns job ID immediately."
+        "All processing is asynchronous — returns job ID immediately.\n\n"
+        "---\n\n"
+        "### Authentication\n"
+        "All endpoints (except `/health`) require a **Bearer token**.\n\n"
+        "1. Go to **Katonic Platform -> AI Studio -> API Management** and create a token.\n"
+        "2. Click the **Authorize** button above.\n"
+        "3. Paste your token (without the `Bearer ` prefix) and click **Authorize**.\n"
+        "4. All requests will now include your token automatically.\n\n"
+        "**Any valid Katonic platform token is accepted** — no server restart needed "
+        "when new tokens are created.\n"
     ),
-    version="2.2.0",
+    version="2.4.0",
     root_path=detect_root_path(),
     lifespan=lifespan
 )
@@ -402,14 +646,14 @@ app.add_middleware(
 
 
 # =============================================================================
-# [NEW] GLOBAL EXCEPTION HANDLER
+# GLOBAL EXCEPTION HANDLERS
 # =============================================================================
 
 @app.exception_handler(Exception)
 async def global_exception_handler(request: Request, exc: Exception):
     """
-    Catch-all exception handler. Prevents raw stack traces from leaking
-    to clients in production. Logs full traceback server-side.
+    Catch-all exception handler.
+    Prevents raw stack traces from leaking to clients in production.
     """
     logger.error(
         f"Unhandled exception on {request.method} {request.url.path}: "
@@ -426,16 +670,16 @@ async def global_exception_handler(request: Request, exc: Exception):
 
 @app.exception_handler(HTTPException)
 async def http_exception_handler(request: Request, exc: HTTPException):
-    """
-    [NEW] Explicit HTTP exception handler with structured logging.
-    """
+    """Explicit HTTP exception handler with structured logging."""
     if exc.status_code >= 500:
         logger.error(f"HTTP {exc.status_code} on {request.url.path}: {exc.detail}")
     elif exc.status_code >= 400:
         logger.warning(f"HTTP {exc.status_code} on {request.url.path}: {exc.detail}")
+
     return JSONResponse(
         status_code=exc.status_code,
-        content={"detail": exc.detail}
+        content={"detail": exc.detail},
+        headers=getattr(exc, "headers", None)
     )
 
 
@@ -467,14 +711,12 @@ def process_ocr_pipeline(job_id: str, file_path: Path, job_dir: Path):
     """
     step_name = "initialization"
     try:
-        # [CHANGE] Lazy-load pipeline modules on first job execution
         _load_pipeline_modules()
 
         job_status[job_id]["status"] = "processing"
         job_status[job_id]["message"] = "Starting OCR pipeline..."
         job_status[job_id]["updated_at"] = datetime.now()
 
-        # Calculate optimal workers dynamically
         optimal_workers = _get_optimal_worker_count(ram_per_worker_gb=1.5, system_reserve_gb=4.0)
         logger.info(f"[Job {job_id}] Starting pipeline with {optimal_workers} workers")
 
@@ -487,7 +729,6 @@ def process_ocr_pipeline(job_id: str, file_path: Path, job_dir: Path):
         ingestor = _file_ingestor_cls(str(job_dir))
         project_dir, image_paths = ingestor.process_input(file_path)
 
-        # [CHANGE] Validate ingestion output before proceeding
         if not image_paths:
             raise ValueError("File ingestion produced no page images. The file may be empty or corrupted.")
 
@@ -500,14 +741,12 @@ def process_ocr_pipeline(job_id: str, file_path: Path, job_dir: Path):
         dla = _dla_cls()
         dla.run_vision_pipeline(image_paths, project_dir, filter_dup=True, merge_visual=False)
 
-        # Cleanup intermediate files to save disk space
         try:
             _cleanup_resource(project_dir / "labeled", force_cleanup=True)
             intermediate_pdf = project_dir / file_path.with_suffix(".pdf").name
             if intermediate_pdf.exists():
                 _cleanup_resource(intermediate_pdf, force_cleanup=True)
         except Exception as cleanup_err:
-            # [CHANGE] Don't fail the job for intermediate cleanup failures
             logger.warning(f"[Job {job_id}] Intermediate cleanup warning: {cleanup_err}")
 
         # --- STEP 3: Masking & OCR ---
@@ -520,9 +759,9 @@ def process_ocr_pipeline(job_id: str, file_path: Path, job_dir: Path):
         page_processor.process_and_mask()
         final_md_path = page_processor.generate_final_markdown()
 
-        # [CHANGE] Validate output file exists and has content
         if not final_md_path or not Path(final_md_path).exists():
             raise FileNotFoundError("Pipeline completed but no output markdown file was generated")
+
         if Path(final_md_path).stat().st_size == 0:
             logger.warning(f"[Job {job_id}] Output markdown is empty (0 bytes)")
 
@@ -538,27 +777,24 @@ def process_ocr_pipeline(job_id: str, file_path: Path, job_dir: Path):
         job_status[job_id]["download_url"] = f"/download/{job_id}"
         job_status[job_id]["updated_at"] = datetime.now()
 
-        logger.info(f"[Job {job_id}] ✓ Completed. Output: {completed_md_path}")
+        logger.info(f"[Job {job_id}] Completed. Output: {completed_md_path}")
 
         # Cleanup processing directory (keep only final result)
         cleanup_job_directory(job_dir)
 
     except Exception as e:
-        # [CHANGE] Log full traceback and include step info in error message
         error_msg = str(e)
         logger.error(
             f"[Job {job_id}] Failed at step '{step_name}': {error_msg}\n"
             f"{traceback.format_exc()}"
         )
 
-        # [CHANGE] Guard against job_status key being missing (race condition)
         if job_id in job_status:
             job_status[job_id]["status"] = "failed"
             job_status[job_id]["message"] = f"Failed at {step_name}: {error_msg}"
             job_status[job_id]["error_step"] = step_name
             job_status[job_id]["updated_at"] = datetime.now()
 
-        # Cleanup on failure
         cleanup_job_directory(job_dir)
 
 
@@ -576,14 +812,16 @@ def cleanup_job_directory(directory: Path):
 # API ENDPOINTS
 # =============================================================================
 
+# ---------------------------------------------------------------------------
+# PUBLIC ENDPOINTS (No auth required)
+# ---------------------------------------------------------------------------
 
 @app.get("/health")
 def health_check():
     """
-    [CHANGE] Renamed from / to /health for proper health check semantics.
-    Root / redirects here. Includes disk space check.
+    Health check endpoint (public — no authentication required).
+    Includes system status, disk space, and job stats.
     """
-    # [NEW] Check disk space availability
     disk_warning = None
     try:
         disk_usage = shutil.disk_usage(BASE_OUTPUT_DIR)
@@ -594,10 +832,23 @@ def health_check():
     except OSError:
         disk_warning = "Unable to check disk space"
 
+    auth_methods = []
+    if HAS_PYJWT:
+        auth_methods.append("JWT (PyJWT)")
+    if STATIC_AUTH_TOKENS:
+        auth_methods.append(f"Static tokens ({len(STATIC_AUTH_TOKENS)})")
+    if not auth_methods:
+        auth_methods.append("NONE CONFIGURED")
+
     return {
         "status": "healthy" if not disk_warning else "degraded",
         "service": "CustomOCR Pipeline API",
-        "version": "2.2.0",
+        "version": "2.4.0",
+        "authentication": {
+            "methods": auth_methods,
+            "jwt_signature_verification": "enabled" if JWT_SECRET else "disabled (expiry-only)",
+            "pyjwt_installed": HAS_PYJWT,
+        },
         "message": "Use POST /process to submit documents. All processing is asynchronous.",
         "docs_url": f"{detect_root_path()}docs",
         "config": {
@@ -614,34 +865,42 @@ def health_check():
     }
 
 
-@app.get("/",include_in_schema=False)
+@app.get("/", include_in_schema=False)
 def root():
     """Root endpoint - same as health check."""
     return health_check()
 
 
+# ---------------------------------------------------------------------------
+# PROTECTED ENDPOINTS (Bearer token required)
+# ---------------------------------------------------------------------------
+
 @app.post("/process", response_model=JobResponse)
-async def process_document(file: UploadFile = File(...)):
+async def process_document(
+    file: UploadFile = File(...),
+    token: str = Depends(verify_token)
+):
     """
+    **Requires Authentication**
+
     Upload a document for OCR processing.
 
-    Accepts: PDF, Word, PowerPoint, Excel, Images, Text files
-    Returns: Job ID for status tracking
+    **Accepts:** PDF, Word, PowerPoint, Excel, Images, Text files
 
-    Use /job/{job_id} to check status and /download/{job_id} to get result.
+    **Returns:** Job ID for status tracking
+
+    Use `/job/{job_id}` to check status and `/download/{job_id}` to get result.
     """
     job_id = None
     job_dir = None
 
     try:
-        # Read file content
         try:
             content = await file.read()
         except Exception as e:
             logger.error(f"Failed to read uploaded file: {e}")
             raise HTTPException(status_code=400, detail="Failed to read uploaded file. It may be corrupted.")
         finally:
-            # [CHANGE] Always close the upload file handle
             await file.close()
 
         content_length = len(content)
@@ -661,7 +920,6 @@ async def process_document(file: UploadFile = File(...)):
         async with aiofiles.open(input_path, "wb") as f:
             await f.write(content)
 
-        # [CHANGE] Verify file was written correctly
         written_size = input_path.stat().st_size
         if written_size != content_length:
             raise HTTPException(
@@ -685,14 +943,12 @@ async def process_document(file: UploadFile = File(...)):
             "updated_at": datetime.now()
         }
 
-        # [CHANGE] Verify executor is available before submitting
         if executor is None:
             raise HTTPException(status_code=503, detail="Service not ready. Please try again shortly.")
 
         # Submit to background worker pool
         future: Future = executor.submit(process_ocr_pipeline, job_id, input_path, job_dir)
 
-        # [CHANGE] Add a callback to catch unexpected thread-level errors
         def _on_done(fut: Future):
             exc = fut.exception()
             if exc and job_id in job_status and job_status[job_id]["status"] not in ("completed", "failed"):
@@ -713,23 +969,27 @@ async def process_document(file: UploadFile = File(...)):
         )
 
     except HTTPException:
-        # Re-raise validation errors as-is
         raise
     except Exception as e:
-        # Cleanup on unexpected failure
         if job_dir and job_dir.exists():
             cleanup_job_directory(job_dir)
-        # [CHANGE] Remove partial job status entry on failure
         if job_id and job_id in job_status:
             del job_status[job_id]
+
         logger.error(f"Upload failed: {e}\n{traceback.format_exc()}")
         raise HTTPException(status_code=500, detail=f"Upload failed: {str(e)}")
 
 
 @app.get("/job/{job_id}")
-async def get_job_status(job_id: str):
-    """Get the current status of a processing job."""
-    # [CHANGE] Validate job_id format
+async def get_job_status(
+    job_id: str,
+    token: str = Depends(verify_token)
+):
+    """
+    **Requires Authentication**
+
+    Get the current status of a processing job.
+    """
     validate_job_id(job_id)
 
     if job_id not in job_status:
@@ -753,7 +1013,6 @@ async def get_job_status(job_id: str):
         if result_path and os.path.exists(result_path):
             response_data["result_size_bytes"] = os.path.getsize(result_path)
 
-    # [CHANGE] Include error step info for failed jobs
     if job_info["status"] == "failed" and job_info.get("error_step"):
         response_data["error_step"] = job_info["error_step"]
 
@@ -761,9 +1020,15 @@ async def get_job_status(job_id: str):
 
 
 @app.get("/download/{job_id}")
-async def download_markdown(job_id: str):
-    """Download the markdown result for a completed job."""
-    # [CHANGE] Validate job_id format
+async def download_markdown(
+    job_id: str,
+    token: str = Depends(verify_token)
+):
+    """
+    **Requires Authentication**
+
+    Download the markdown result for a completed job.
+    """
     validate_job_id(job_id)
 
     if job_id not in job_status:
@@ -785,18 +1050,15 @@ async def download_markdown(job_id: str):
     if job_info.get("result_path") and os.path.exists(job_info["result_path"]):
         result_path = job_info["result_path"]
     else:
-        # Fallback: search completed directory
         matching_files = list(COMPLETED_DIR.glob(f"{job_id}_*.md"))
         if matching_files:
             result_path = str(matching_files[0])
 
     if not result_path or not os.path.exists(result_path):
-        # [CHANGE] Log the missing file scenario
         logger.error(f"[Job {job_id}] Result file missing: {job_info.get('result_path')}")
         raise HTTPException(status_code=404, detail="Result file not found. It may have been cleaned up.")
 
     filename = f"{job_id}_{job_info['filename']}.md"
-
     return FileResponse(
         path=result_path,
         filename=filename,
@@ -806,13 +1068,18 @@ async def download_markdown(job_id: str):
 
 
 @app.get("/jobs")
-async def list_jobs(status: Optional[str] = None, limit: int = 50):
+async def list_jobs(
+    status: Optional[str] = None,
+    limit: int = 50,
+    token: str = Depends(verify_token)
+):
     """
+    **Requires Authentication**
+
     List all jobs with optional status filter.
 
-    Filter options: queued, processing, completed, failed
+    **Filter options:** queued, processing, completed, failed
     """
-    # [CHANGE] Validate status parameter
     valid_statuses = {"queued", "processing", "completed", "failed"}
     if status and status not in valid_statuses:
         raise HTTPException(
@@ -820,11 +1087,9 @@ async def list_jobs(status: Optional[str] = None, limit: int = 50):
             detail=f"Invalid status filter: '{status}'. Must be one of: {', '.join(sorted(valid_statuses))}"
         )
 
-    # [CHANGE] Clamp limit to a reasonable range
     limit = max(1, min(limit, 500))
 
     jobs_list = []
-
     for job_id, job_info in sorted(
         job_status.items(),
         key=lambda x: x[1]["created_at"],
@@ -858,9 +1123,15 @@ async def list_jobs(status: Optional[str] = None, limit: int = 50):
 
 
 @app.delete("/job/{job_id}")
-async def delete_job(job_id: str):
-    """Delete a job record and its result file (if exists)."""
-    # [CHANGE] Validate job_id format
+async def delete_job(
+    job_id: str,
+    token: str = Depends(verify_token)
+):
+    """
+    **Requires Authentication**
+
+    Delete a job record and its result file (if exists).
+    """
     validate_job_id(job_id)
 
     if job_id not in job_status:
@@ -868,11 +1139,9 @@ async def delete_job(job_id: str):
 
     job_info = job_status[job_id]
 
-    # Prevent deletion of active jobs
     if job_info["status"] in ["queued", "processing"]:
         raise HTTPException(status_code=409, detail="Cannot delete active job. Wait for completion or failure.")
 
-    # Delete result file if exists
     if job_info.get("result_path") and os.path.exists(job_info["result_path"]):
         try:
             os.remove(job_info["result_path"])
@@ -880,9 +1149,7 @@ async def delete_job(job_id: str):
         except OSError as e:
             logger.warning(f"[Job {job_id}] Failed to delete result file: {e}")
 
-    # Remove from tracking
     del job_status[job_id]
-
     return {"message": f"Job {job_id} deleted successfully"}
 
 
@@ -894,15 +1161,14 @@ async def periodic_job_cleanup():
     """Runs every hour to cleanup expired job records."""
     while True:
         try:
-            await asyncio.sleep(3600)  # 1 hour
+            await asyncio.sleep(3600)
             cleanup_old_jobs()
         except asyncio.CancelledError:
             logger.info("Periodic cleanup task cancelled")
             break
         except Exception as e:
-            # [CHANGE] Don't let cleanup errors crash the background task
             logger.error(f"Periodic cleanup error: {e}")
-            await asyncio.sleep(60)  # Wait a bit before retrying
+            await asyncio.sleep(60)
 
 
 # =============================================================================
@@ -911,6 +1177,33 @@ async def periodic_job_cleanup():
 
 if __name__ == "__main__":
     port = int(os.getenv("PORT", "8050"))
+
+    # Startup diagnostics
+    print("\n" + "=" * 60)
+    print("  CustomOCR Pipeline API v2.4.0")
+    print("=" * 60)
+
+    if HAS_PYJWT:
+        print("  [OK] PyJWT installed — Katonic JWT tokens auto-validated")
+    else:
+        print("  [!!] PyJWT NOT installed — Install with: pip install PyJWT")
+
+    if JWT_SECRET:
+        print("  [OK] JWT_SECRET set — Full signature verification enabled")
+    else:
+        print("  [--] JWT_SECRET not set — JWT expiry-only validation")
+
+    if STATIC_AUTH_TOKENS:
+        print(f"  [OK] {len(STATIC_AUTH_TOKENS)} static token(s) configured")
+    else:
+        print("  [--] No static tokens (API_AUTH_TOKENS not set)")
+
+    if not HAS_PYJWT and not STATIC_AUTH_TOKENS:
+        print("\n  [!!] WARNING: No authentication method available!")
+        print("     Run: pip install PyJWT")
+        print("     OR set: export API_AUTH_TOKENS=your-token-here")
+
+    print("=" * 60 + "\n")
 
     uvicorn.run(
         app,

@@ -540,3 +540,418 @@ RuntimeError: A dependency error occurred during predictor creation. Please refe
 2026-02-11 11:46:38,748 - root - INFO - [process_input:139] 📄 Processing PDF: saudi_2030.pdf
 2026-02-11 11:46:38,749 - root - INFO - [_pdf_to_images_fitz:253]    -> Extracting 3 pages...
 2026-02-11 11:46:39,131 - __main__ - INFO - [process_ocr_pipeline:496] [Job 7a76a30845240f49] Step 2/3 - Analyzing document layout (3 pages)...
+2026-02-16 16:23:23,548 - __main__ - INFO - [lifespan:326] ============================================================
+2026-02-16 16:23:23,548 - __main__ - INFO - [lifespan:327] CustomOCR Pipeline API v2.2.0 starting...
+2026-02-16 16:23:23,548 - __main__ - INFO - [lifespan:328] ============================================================
+2026-02-16 16:23:23,548 - __main__ - INFO - [lifespan:331] Output Directory  : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output
+2026-02-16 16:23:23,548 - __main__ - INFO - [lifespan:332] Completed Dir     : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output/completed
+2026-02-16 16:23:23,548 - __main__ - INFO - [lifespan:333] Max Upload Size   : 500 MB
+2026-02-16 16:23:23,548 - __main__ - INFO - [lifespan:334] Max Workers       : 2
+2026-02-16 16:23:23,548 - __main__ - INFO - [lifespan:335] Job Retention     : 24 hours
+2026-02-16 16:23:23,548 - __main__ - INFO - [lifespan:336] Allowed Extensions: 23 types
+2026-02-16 16:23:23,548 - __main__ - INFO - [lifespan:343] Output directory: Writable ✓
+2026-02-16 16:23:23,549 - __main__ - INFO - [lifespan:350] Thread pool initialized with 2 workers
+2026-02-16 16:23:23,549 - __main__ - INFO - [lifespan:358] ============================================================
+2026-02-16 16:23:23,549 - __main__ - INFO - [lifespan:359] API Ready. Accepting requests.
+2026-02-16 16:23:23,549 - __main__ - INFO - [lifespan:360] ============================================================
+2026-02-16 16:47:42,508 - __main__ - INFO - [lifespan:365] CustomOCR Pipeline API shutting down...
+2026-02-16 16:47:42,508 - __main__ - INFO - [periodic_job_cleanup:900] Periodic cleanup task cancelled
+2026-02-16 16:47:42,508 - __main__ - INFO - [lifespan:378] Thread pool shut down
+2026-02-16 16:47:42,509 - __main__ - INFO - [lifespan:380] Shutdown complete.
+2026-02-16 16:47:54,207 - __main__ - INFO - [lifespan:364] ============================================================
+2026-02-16 16:47:54,208 - __main__ - INFO - [lifespan:365] CustomOCR Pipeline API v2.3.0 starting...
+2026-02-16 16:47:54,208 - __main__ - INFO - [lifespan:366] ============================================================
+2026-02-16 16:47:54,208 - __main__ - INFO - [lifespan:367] Output Directory  : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output
+2026-02-16 16:47:54,208 - __main__ - INFO - [lifespan:368] Max Upload Size   : 500 MB
+2026-02-16 16:47:54,208 - __main__ - INFO - [lifespan:369] Max Workers       : 2
+2026-02-16 16:47:54,208 - __main__ - INFO - [lifespan:370] Job Retention     : 24 hours
+2026-02-16 16:47:54,208 - __main__ - WARNING - [lifespan:376] Authentication    : DISABLED — Set API_AUTH_TOKEN or API_AUTH_TOKENS to enable
+2026-02-16 16:47:54,208 - __main__ - INFO - [lifespan:390] ============================================================
+2026-02-16 16:47:54,208 - __main__ - INFO - [lifespan:391] API Ready. Accepting requests.
+2026-02-16 16:47:54,208 - __main__ - INFO - [lifespan:392] ============================================================
+2026-02-16 17:04:46,103 - __main__ - INFO - [lifespan:464] ============================================================
+2026-02-16 17:04:46,103 - __main__ - INFO - [lifespan:465] CustomOCR Pipeline API v2.4.0 starting...
+2026-02-16 17:04:46,103 - __main__ - INFO - [lifespan:466] ============================================================
+2026-02-16 17:04:46,103 - __main__ - INFO - [lifespan:467] Output Directory  : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output
+2026-02-16 17:04:46,103 - __main__ - INFO - [lifespan:468] Max Upload Size   : 500 MB
+2026-02-16 17:04:46,103 - __main__ - INFO - [lifespan:469] Max Workers       : 2
+2026-02-16 17:04:46,103 - __main__ - INFO - [lifespan:470] Job Retention     : 24 hours
+2026-02-16 17:04:46,104 - __main__ - INFO - [lifespan:471] Auth Mode         : both
+2026-02-16 17:04:46,104 - __main__ - INFO - [lifespan:478] Env Tokens        : None (tokens will be validated via gateway or at runtime)
+2026-02-16 17:04:46,104 - __main__ - INFO - [lifespan:480] Authentication    : DYNAMIC — Katonic platform tokens accepted via gateway
+2026-02-16 17:04:46,104 - __main__ - INFO - [lifespan:481]                     Create tokens at: AI Studio → Global Settings → API Management
+2026-02-16 17:04:46,104 - __main__ - INFO - [lifespan:495] ============================================================
+2026-02-16 17:04:46,104 - __main__ - INFO - [lifespan:496] API Ready. Accepting requests.
+2026-02-16 17:04:46,104 - __main__ - INFO - [lifespan:497] ============================================================
+2026-02-16 17:08:31,536 - __main__ - INFO - [verify_token:241] Bearer token accepted (no env tokens configured, gateway header absent). Token hint: ...HCyI
+2026-02-16 17:08:31,538 - __main__ - INFO - [process_document:785] [Job 052a1e5ddcbeecd7] Received: saudi_2030.pdf (0.06 MB) [auth: token, user: bearer-authenticated]
+2026-02-16 17:08:38,841 - pikepdf._core - INFO - [<module>:13] pikepdf C++ to Python logger bridge initialized
+2026-02-16 17:08:38,943 - __main__ - INFO - [_load_pipeline_modules:376] All pipeline modules loaded successfully
+2026-02-16 17:08:38,943 - __main__ - INFO - [process_ocr_pipeline:597] [Job 052a1e5ddcbeecd7] Starting with 38 workers
+2026-02-16 17:08:38,943 - __main__ - INFO - [process_ocr_pipeline:601] [Job 052a1e5ddcbeecd7] Step 1/3 - Ingesting file...
+2026-02-16 17:08:38,943 - root - INFO - [_load_config:91] ✅ Loaded config from /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/resources/dla.vars.json
+2026-02-16 17:08:38,952 - root - INFO - [_register_fonts:111] ✅ Loaded font for Arabic support: /usr/share/fonts/truetype/dejavu/DejaVuSans.ttf
+2026-02-16 17:08:38,952 - root - INFO - [process_input:139] 📄 Processing PDF: saudi_2030.pdf
+2026-02-16 17:08:38,953 - root - INFO - [_pdf_to_images_fitz:253]    -> Extracting 3 pages...
+2026-02-16 17:08:39,333 - __main__ - INFO - [process_ocr_pipeline:613] [Job 052a1e5ddcbeecd7] Step 2/3 - Layout analysis (3 pages)...
+2026-02-16 17:50:21,699 - __main__ - INFO - [lifespan:662] ============================================================
+2026-02-16 17:50:21,699 - __main__ - INFO - [lifespan:663] CustomOCR Pipeline API v2.4.0 starting...
+2026-02-16 17:50:21,699 - __main__ - INFO - [lifespan:664] ============================================================
+2026-02-16 17:50:21,699 - __main__ - INFO - [lifespan:665] Output Directory     : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output
+2026-02-16 17:50:21,699 - __main__ - INFO - [lifespan:666] Max Upload Size      : 500 MB
+2026-02-16 17:50:21,699 - __main__ - INFO - [lifespan:667] Max Workers          : 2
+2026-02-16 17:50:21,699 - __main__ - INFO - [lifespan:668] Job Retention        : 24 hours
+2026-02-16 17:50:21,699 - __main__ - INFO - [lifespan:669] Authentication       : ENABLED (Dynamic Katonic JWT)
+2026-02-16 17:50:21,699 - __main__ - INFO - [lifespan:670] JWT Signature Verify : NO (decode-only)
+2026-02-16 17:50:21,699 - __main__ - INFO - [lifespan:674] Static Tokens        : None (JWT-only mode)
+2026-02-16 17:50:21,699 - __main__ - INFO - [lifespan:688] ============================================================
+2026-02-16 17:50:21,699 - __main__ - INFO - [lifespan:689] API Ready. Accepting requests.
+2026-02-16 17:50:21,699 - __main__ - INFO - [lifespan:690] ============================================================
+2026-02-16 17:51:39,978 - __main__ - WARNING - [verify_token:470] Authentication failed — token ending: ...UHq0, gap-auth: N/A
+2026-02-16 17:51:39,978 - __main__ - WARNING - [http_exception_handler:753] HTTP 403 on /auth/verify: Invalid API token. Please provide a valid Katonic JWT token.
+Get token from: Katonic AI Studio → Global Settings → API Management → Create API Token
+2026-02-16 17:53:37,061 - __main__ - INFO - [verify_token:423] JWT auth successful — sub: 8eed07eef46f4282b81b5090b649447fkatonic, gap-auth: N/A
+2026-02-16 17:54:18,590 - __main__ - INFO - [verify_token:423] JWT auth successful — sub: 8eed07eef46f4282b81b5090b649447fkatonic, gap-auth: N/A
+2026-02-16 17:54:18,592 - __main__ - INFO - [process_document:961] [Job 843ae19935c0527c] Received: saudi_2030.pdf (0.06 MB) from user: 8eed07eef46f4282b81b5090b649447fkatonic
+2026-02-16 17:54:26,536 - pikepdf._core - INFO - [<module>:13] pikepdf C++ to Python logger bridge initialized
+2026-02-16 17:54:26,636 - __main__ - INFO - [_load_pipeline_modules:574] All pipeline modules loaded successfully
+2026-02-16 17:54:26,636 - __main__ - INFO - [process_ocr_pipeline:789] [Job 843ae19935c0527c] Starting with 38 workers
+2026-02-16 17:54:26,636 - __main__ - INFO - [process_ocr_pipeline:793] [Job 843ae19935c0527c] Step 1/3 - Ingesting file...
+2026-02-16 17:54:26,637 - root - INFO - [_load_config:91] ✅ Loaded config from /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/resources/dla.vars.json
+2026-02-16 17:54:26,646 - root - INFO - [_register_fonts:111] ✅ Loaded font for Arabic support: /usr/share/fonts/truetype/dejavu/DejaVuSans.ttf
+2026-02-16 17:54:26,646 - root - INFO - [process_input:139] 📄 Processing PDF: saudi_2030.pdf
+2026-02-16 17:54:26,647 - root - INFO - [_pdf_to_images_fitz:253]    -> Extracting 3 pages...
+2026-02-16 17:54:27,026 - __main__ - INFO - [process_ocr_pipeline:805] [Job 843ae19935c0527c] Step 2/3 - Layout analysis (3 pages)...
+2026-02-16 17:57:25,718 - __main__ - WARNING - [http_exception_handler:753] HTTP 401 on /auth/verify: Authentication required. Provide a Bearer token in the Authorization header.
+Get token from: Katonic AI Studio → Global Settings → API Management → Create API Token
+2026-02-16 17:58:02,750 - __main__ - WARNING - [verify_token:470] Authentication failed — token ending: ...UHq0, gap-auth: N/A
+2026-02-16 17:58:02,750 - __main__ - WARNING - [http_exception_handler:753] HTTP 403 on /auth/verify: Invalid API token. Please provide a valid Katonic JWT token.
+Get token from: Katonic AI Studio → Global Settings → API Management → Create API Token
+2026-02-16 18:27:05,371 - __main__ - INFO - [lifespan:780] ============================================================
+2026-02-16 18:27:05,371 - __main__ - INFO - [lifespan:781] CustomOCR Pipeline API v2.5.0 starting...
+2026-02-16 18:27:05,371 - __main__ - INFO - [lifespan:782] ============================================================
+2026-02-16 18:27:05,371 - __main__ - INFO - [lifespan:783] Output Directory        : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output
+2026-02-16 18:27:05,371 - __main__ - INFO - [lifespan:784] Max Upload Size         : 500 MB
+2026-02-16 18:27:05,372 - __main__ - INFO - [lifespan:785] Max Workers             : 2
+2026-02-16 18:27:05,372 - __main__ - INFO - [lifespan:786] Job Retention           : 24 hours
+2026-02-16 18:27:05,372 - __main__ - INFO - [lifespan:787] Authentication          : ENABLED (Katonic Platform Validation)
+2026-02-16 18:27:05,372 - __main__ - INFO - [lifespan:788] Platform URL            : (auto-detect from request)
+2026-02-16 18:27:05,372 - __main__ - INFO - [lifespan:789] Validate Endpoint       : (auto-discover)
+2026-02-16 18:27:05,372 - __main__ - INFO - [lifespan:790] Token Cache TTL         : 300s
+2026-02-16 18:27:05,372 - __main__ - INFO - [lifespan:794] Static Token Fallback   : None
+2026-02-16 18:27:05,372 - __main__ - INFO - [lifespan:808] ============================================================
+2026-02-16 18:27:05,372 - __main__ - INFO - [lifespan:809] API Ready. Accepting requests.
+2026-02-16 18:27:05,372 - __main__ - INFO - [lifespan:810] ============================================================
+2026-02-16 18:29:59,991 - __main__ - WARNING - [verify_token:522] ✗ Token REJECTED by platform (platform_rejected:401) — gap-auth: N/A
+2026-02-16 18:29:59,992 - __main__ - WARNING - [http_exception_handler:875] HTTP 403 on /auth/verify: Token rejected by Katonic platform. Your token may be expired, revoked, or invalid.
+Please generate a new token from: Katonic AI Studio → Global Settings → API Management → Create API Token
+2026-02-16 18:31:06,034 - __main__ - WARNING - [verify_token:522] ✗ Token REJECTED by platform (platform_rejected:401) — gap-auth: N/A
+2026-02-16 18:31:06,034 - __main__ - WARNING - [http_exception_handler:875] HTTP 403 on /auth/verify: Token rejected by Katonic platform. Your token may be expired, revoked, or invalid.
+Please generate a new token from: Katonic AI Studio → Global Settings → API Management → Create API Token
+2026-02-16 18:40:49,041 - __main__ - INFO - [lifespan:814] Shutting down...
+2026-02-16 18:40:49,041 - __main__ - INFO - [lifespan:823] Shutdown complete.
+2026-02-16 18:41:43,380 - __main__ - INFO - [lifespan:830] ============================================================
+2026-02-16 18:41:43,380 - __main__ - INFO - [lifespan:831] CustomOCR Pipeline API v2.6.0 starting...
+2026-02-16 18:41:43,380 - __main__ - INFO - [lifespan:832] ============================================================
+2026-02-16 18:41:43,380 - __main__ - INFO - [lifespan:833] Output Directory        : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output
+2026-02-16 18:41:43,380 - __main__ - INFO - [lifespan:834] Max Upload Size         : 500 MB
+2026-02-16 18:41:43,380 - __main__ - INFO - [lifespan:835] Max Workers             : 2
+2026-02-16 18:41:43,380 - __main__ - INFO - [lifespan:836] Job Retention           : 24 hours
+2026-02-16 18:41:43,380 - __main__ - INFO - [lifespan:837] Auth Layer 1            : Gateway Trust (gap-auth header)
+2026-02-16 18:41:43,380 - __main__ - INFO - [lifespan:838] Auth Layer 2            : Katonic JWT Claims (sub must contain 'katonic': True)
+2026-02-16 18:41:43,380 - __main__ - INFO - [lifespan:839] Auth Layer 3            : Platform Callback (ENABLED: https://aice.modon.gov.sa)
+2026-02-16 18:41:43,380 - __main__ - INFO - [lifespan:840] Token Cache TTL         : 300s
+2026-02-16 18:41:43,380 - __main__ - INFO - [lifespan:855] ============================================================
+2026-02-16 18:41:43,380 - __main__ - INFO - [lifespan:856] API Ready. Accepting requests.
+2026-02-16 18:41:43,380 - __main__ - INFO - [lifespan:857] ============================================================
+2026-02-16 18:42:41,164 - __main__ - INFO - [verify_token:518] ✓ Auth via gateway+jwt — user: ashok.pravin@takween.ai, sub: 8eed07eef46f4282b81b5090b649447fkatonic
+2026-02-16 18:43:49,330 - __main__ - INFO - [verify_token:518] ✓ Auth via gateway+jwt — user: ashok.pravin@takween.ai, sub: 8eed07eef46f4282b81b5090b649447fkatonic
+2026-02-16 18:45:53,911 - __main__ - INFO - [verify_token:518] ✓ Auth via gateway+jwt — user: ashok.pravin@takween.ai, sub: 8eed07eef46f4282b81b5090b649447fkatonic
+2026-02-16 18:52:10,772 - __main__ - INFO - [lifespan:861] Shutting down...
+2026-02-16 18:52:10,772 - __main__ - INFO - [lifespan:870] Shutdown complete.
+2026-02-16 19:00:04,686 - __main__ - INFO - [lifespan:830] ============================================================
+2026-02-16 19:00:04,686 - __main__ - INFO - [lifespan:831] CustomOCR Pipeline API v2.6.0 starting...
+2026-02-16 19:00:04,686 - __main__ - INFO - [lifespan:832] ============================================================
+2026-02-16 19:00:04,686 - __main__ - INFO - [lifespan:833] Output Directory        : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output
+2026-02-16 19:00:04,686 - __main__ - INFO - [lifespan:834] Max Upload Size         : 500 MB
+2026-02-16 19:00:04,686 - __main__ - INFO - [lifespan:835] Max Workers             : 2
+2026-02-16 19:00:04,686 - __main__ - INFO - [lifespan:836] Job Retention           : 24 hours
+2026-02-16 19:00:04,686 - __main__ - INFO - [lifespan:837] Auth Layer 1            : Gateway Trust (gap-auth header)
+2026-02-16 19:00:04,686 - __main__ - INFO - [lifespan:838] Auth Layer 2            : Katonic JWT Claims (sub must contain 'katonic': True)
+2026-02-16 19:00:04,686 - __main__ - INFO - [lifespan:839] Auth Layer 3            : Platform Callback (ENABLED: https://aice.modon.gov.sa)
+2026-02-16 19:00:04,686 - __main__ - INFO - [lifespan:840] Token Cache TTL         : 300s
+2026-02-16 19:00:04,686 - __main__ - INFO - [lifespan:855] ============================================================
+2026-02-16 19:00:04,686 - __main__ - INFO - [lifespan:856] API Ready. Accepting requests.
+2026-02-16 19:00:04,687 - __main__ - INFO - [lifespan:857] ============================================================
+2026-02-16 19:00:47,651 - __main__ - INFO - [verify_token:518] ✓ Auth via gateway+jwt — user: ashok.pravin@takween.ai, sub: 8eed07eef46f4282b81b5090b649447fkatonic
+2026-02-16 19:01:50,391 - __main__ - INFO - [lifespan:861] Shutting down...
+2026-02-16 19:01:50,391 - __main__ - INFO - [lifespan:870] Shutdown complete.
+2026-02-16 19:02:58,481 - __main__ - INFO - [lifespan:571] ============================================================
+2026-02-16 19:02:58,481 - __main__ - INFO - [lifespan:572] CustomOCR Pipeline API v2.7.0 starting...
+2026-02-16 19:02:58,481 - __main__ - INFO - [lifespan:573] ============================================================
+2026-02-16 19:02:58,481 - __main__ - INFO - [lifespan:574] Output Directory     : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output
+2026-02-16 19:02:58,481 - __main__ - INFO - [lifespan:575] Max Upload Size      : 500 MB
+2026-02-16 19:02:58,481 - __main__ - INFO - [lifespan:576] Max Workers          : 2
+2026-02-16 19:02:58,481 - __main__ - INFO - [lifespan:577] Job Retention        : 24 hours
+2026-02-16 19:02:58,481 - __main__ - INFO - [lifespan:578] Auth Method          : Token Registration (SHA-256 hash match)
+2026-02-16 19:02:58,481 - __main__ - INFO - [lifespan:579] Registry File        : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output/.token_registry.json
+2026-02-16 19:02:58,482 - __main__ - INFO - [lifespan:587] Auto-registered      : 1 token(s) from env/file
+2026-02-16 19:02:58,482 - __main__ - INFO - [lifespan:588] Total Registered     : 1 token(s)
+2026-02-16 19:02:58,482 - __main__ - INFO - [lifespan:609] ============================================================
+2026-02-16 19:02:58,482 - __main__ - INFO - [lifespan:610] API Ready.
+2026-02-16 19:02:58,482 - __main__ - INFO - [lifespan:611] ============================================================
+2026-02-16 19:04:22,637 - __main__ - WARNING - [verify_token:373] ✗ REJECTED — unregistered token (hash: 497430c2f8adbb65...) gateway: ashok.pravin@takween.ai
+2026-02-16 19:04:22,637 - __main__ - WARNING - [http_exception_handler:669] HTTP 403 on /auth/verify: Token not recognized. Possible causes:
+  • Token was never registered (use POST /auth/register-token)
+  • Token was modified/tweaked after registration
+  • Token was revoked via DELETE /auth/tokens/{hash}
+
+Register your token: POST /auth/register-token
+2026-02-16 22:44:46,633 - __main__ - INFO - [lifespan:359] ============================================================
+2026-02-16 22:44:46,633 - __main__ - INFO - [lifespan:360] CustomOCR Pipeline API v2.4.0 starting...
+2026-02-16 22:44:46,633 - __main__ - INFO - [lifespan:361] ============================================================
+2026-02-16 22:44:46,633 - __main__ - INFO - [lifespan:362] Output Directory  : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output
+2026-02-16 22:44:46,633 - __main__ - INFO - [lifespan:363] Max Upload Size   : 500 MB
+2026-02-16 22:44:46,633 - __main__ - INFO - [lifespan:364] Max Workers       : 2
+2026-02-16 22:44:46,633 - __main__ - INFO - [lifespan:365] Job Retention     : 24 hours
+2026-02-16 22:44:46,633 - __main__ - INFO - [lifespan:371] Static tokens       : 1 configured
+2026-02-16 23:10:56,025 - __main__ - INFO - [lifespan:771] ============================================================
+2026-02-16 23:10:56,025 - __main__ - INFO - [lifespan:772] CustomOCR Pipeline API v3.1.0 starting...
+2026-02-16 23:10:56,025 - __main__ - INFO - [lifespan:773] ============================================================
+2026-02-16 23:10:56,025 - __main__ - INFO - [lifespan:774] Output Directory       : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output
+2026-02-16 23:10:56,025 - __main__ - INFO - [lifespan:775] Max Upload Size        : 500 MB
+2026-02-16 23:10:56,025 - __main__ - INFO - [lifespan:776] Max Workers            : 2
+2026-02-16 23:10:56,025 - __main__ - INFO - [lifespan:777] Job Retention          : 24 hours
+2026-02-16 23:10:56,025 - __main__ - INFO - [lifespan:778] Auth Method            : Direct Katonic Platform Validation (auto-discover)
+2026-02-16 23:10:56,025 - __main__ - INFO - [lifespan:779] Katonic Platform URL   : https://aice.modon.gov.sa
+2026-02-16 23:10:56,025 - __main__ - INFO - [lifespan:780] Validation Paths       : 21 endpoints to try
+2026-02-16 23:10:56,025 - __main__ - INFO - [lifespan:781] Token Cache TTL        : 300 seconds
+2026-02-16 23:10:56,025 - __main__ - INFO - [lifespan:802] ============================================================
+2026-02-16 23:10:56,025 - __main__ - INFO - [lifespan:803] API Ready — tokens validated directly against Katonic platform.
+2026-02-16 23:10:56,026 - __main__ - INFO - [lifespan:804] ============================================================
+2026-02-16 23:12:08,994 - __main__ - INFO - [_discover_and_validate:409] Discovering Katonic validation endpoint at https://aice.modon.gov.sa (21 paths to try)...
+2026-02-16 23:12:09,010 - httpx - INFO - [_send_single_request:1740] HTTP Request: GET https://aice.modon.gov.sa/api/v1/env/me "HTTP/1.1 401 Unauthorized"
+2026-02-16 23:12:09,011 - __main__ - INFO - [_discover_and_validate:421] ✓ Discovered Katonic validation endpoint: https://aice.modon.gov.sa/api/v1/env/me (HTTP 401)
+2026-02-16 23:12:09,011 - __main__ - WARNING - [verify_token:600] ✗ REJECTED — sub: 8eed07eef46f4282b81b5090b649447fkatonic, gateway: ashok.pravin@takween.ai, reason: Token rejected (HTTP 401)
+2026-02-16 23:12:09,011 - __main__ - WARNING - [http_exception_handler:865] HTTP 403 on /auth/verify: Token rejected by the Katonic platform.
+
+Possible causes:
+  • Token was revoked or deleted in Katonic API Management
+  • Token has expired
+  • Token was not created in Katonic AI Studio → API Management
+  • Token is malformed or incomplete
+
+2026-02-16 23:12:51,346 - __main__ - INFO - [lifespan:808] Shutting down...
+2026-02-16 23:12:51,346 - __main__ - INFO - [lifespan:818] Shutdown complete.
+2026-02-16 23:13:25,835 - __main__ - INFO - [lifespan:771] ============================================================
+2026-02-16 23:13:25,835 - __main__ - INFO - [lifespan:772] CustomOCR Pipeline API v3.1.0 starting...
+2026-02-16 23:13:25,835 - __main__ - INFO - [lifespan:773] ============================================================
+2026-02-16 23:13:25,835 - __main__ - INFO - [lifespan:774] Output Directory       : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output
+2026-02-16 23:13:25,835 - __main__ - INFO - [lifespan:775] Max Upload Size        : 500 MB
+2026-02-16 23:13:25,835 - __main__ - INFO - [lifespan:776] Max Workers            : 2
+2026-02-16 23:13:25,835 - __main__ - INFO - [lifespan:777] Job Retention          : 24 hours
+2026-02-16 23:13:25,835 - __main__ - INFO - [lifespan:778] Auth Method            : Direct Katonic Platform Validation (auto-discover)
+2026-02-16 23:13:25,835 - __main__ - INFO - [lifespan:779] Katonic Platform URL   : https://aice.modon.gov.sa
+2026-02-16 23:13:25,835 - __main__ - INFO - [lifespan:780] Validation Paths       : 21 endpoints to try
+2026-02-16 23:13:25,835 - __main__ - INFO - [lifespan:781] Token Cache TTL        : 300 seconds
+2026-02-16 23:13:25,836 - __main__ - INFO - [lifespan:802] ============================================================
+2026-02-16 23:13:25,836 - __main__ - INFO - [lifespan:803] API Ready — tokens validated directly against Katonic platform.
+2026-02-16 23:13:25,836 - __main__ - INFO - [lifespan:804] ============================================================
+2026-02-16 23:15:09,119 - __main__ - INFO - [_discover_and_validate:409] Discovering Katonic validation endpoint at https://aice.modon.gov.sa (21 paths to try)...
+2026-02-16 23:15:09,134 - httpx - INFO - [_send_single_request:1740] HTTP Request: GET https://aice.modon.gov.sa/api/v1/env/me "HTTP/1.1 401 Unauthorized"
+2026-02-16 23:15:09,135 - __main__ - INFO - [_discover_and_validate:421] ✓ Discovered Katonic validation endpoint: https://aice.modon.gov.sa/api/v1/env/me (HTTP 401)
+2026-02-16 23:15:09,135 - __main__ - WARNING - [verify_token:600] ✗ REJECTED — sub: 8eed07eef46f4282b81b5090b649447fkatonic, gateway: ashok.pravin@takween.ai, reason: Token rejected (HTTP 401)
+2026-02-16 23:15:09,135 - __main__ - WARNING - [http_exception_handler:865] HTTP 403 on /auth/verify: Token rejected by the Katonic platform.
+
+Possible causes:
+  • Token was revoked or deleted in Katonic API Management
+  • Token has expired
+  • Token was not created in Katonic AI Studio → API Management
+  • Token is malformed or incomplete
+
+2026-02-16 23:16:08,201 - __main__ - WARNING - [http_exception_handler:865] HTTP 400 on /auth/discover-endpoint: Provide a valid Katonic token.
+2026-02-16 23:26:04,328 - __main__ - INFO - [lifespan:868] ============================================================
+2026-02-16 23:26:04,328 - __main__ - INFO - [lifespan:869] CustomOCR Pipeline API v4.0.0 starting...
+2026-02-16 23:26:04,328 - __main__ - INFO - [lifespan:870] ============================================================
+2026-02-16 23:26:04,328 - __main__ - INFO - [lifespan:871] Output Directory       : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output
+2026-02-16 23:26:04,328 - __main__ - INFO - [lifespan:872] Max Upload Size        : 500 MB
+2026-02-16 23:26:04,328 - __main__ - INFO - [lifespan:873] Max Workers            : 2
+2026-02-16 23:26:04,329 - __main__ - INFO - [lifespan:874] Job Retention          : 24 hours
+2026-02-16 23:26:04,329 - __main__ - INFO - [lifespan:875] Auth Method            : JWT Signature Verification (Keycloak JWKS)
+2026-02-16 23:26:04,329 - __main__ - INFO - [lifespan:876] Katonic Platform URL   : https://aice.modon.gov.sa
+2026-02-16 23:26:04,329 - __main__ - INFO - [lifespan:877] Keycloak JWKS URL      : https://aice.modon.gov.sa/auth/realms/katonic/protocol/openid-connect/certs
+2026-02-16 23:26:04,329 - __main__ - INFO - [lifespan:878] Keycloak Realm         : (auto-discover)
+2026-02-16 23:26:04,329 - __main__ - INFO - [lifespan:879] JWKS Cache TTL         : 3600 seconds
+2026-02-16 23:26:04,329 - __main__ - INFO - [lifespan:880] Token Cache TTL        : 300 seconds
+2026-02-16 23:26:04,329 - __main__ - INFO - [lifespan:881] PyJWT available        : True
+2026-02-16 23:26:04,329 - __main__ - INFO - [lifespan:891] Discovering Keycloak JWKS at https://aice.modon.gov.sa...
+2026-02-16 23:26:04,362 - httpx - INFO - [_send_single_request:1740] HTTP Request: GET https://aice.modon.gov.sa/auth/realms/katonic/protocol/openid-connect/certs "HTTP/1.1 200 OK"
+2026-02-16 23:26:04,363 - __main__ - INFO - [lifespan:894] ✓ JWKS keys loaded: 1 signing key(s) from https://aice.modon.gov.sa/auth/realms/katonic/protocol/openid-connect/certs
+2026-02-16 23:26:04,363 - __main__ - INFO - [lifespan:913] ============================================================
+2026-02-16 23:26:04,363 - __main__ - INFO - [lifespan:914] API Ready — JWT signatures verified via Keycloak public keys.
+2026-02-16 23:26:04,363 - __main__ - INFO - [lifespan:915] ============================================================
+2026-02-16 23:26:58,936 - __main__ - ERROR - [verify_token:691] JWT verification error: Expected a string value
+Traceback (most recent call last):
+  File "/home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/ocr_app.py", line 667, in verify_token
+    verified_claims = _jwks_manager.verify_token(jwt_token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/ocr_app.py", line 367, in verify_token
+    decoded = pyjwt.decode(
+              ^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/jwt/api_jwt.py", line 371, in decode
+    decoded = self.decode_complete(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/jwt/api_jwt.py", line 268, in decode_complete
+    decoded = self._jws.decode_complete(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/jwt/api_jws.py", line 244, in decode_complete
+    self._verify_signature(signing_input, header, signature, key, algorithms)
+  File "/opt/conda/lib/python3.12/site-packages/jwt/api_jws.py", line 349, in _verify_signature
+    prepared_key = alg_obj.prepare_key(key)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/jwt/algorithms.py", line 343, in prepare_key
+    key_bytes = force_bytes(key)
+                ^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/jwt/utils.py", line 22, in force_bytes
+    raise TypeError("Expected a string value")
+TypeError: Expected a string value
+
+2026-02-16 23:26:58,936 - __main__ - WARNING - [http_exception_handler:976] HTTP 403 on /auth/verify: Token verification error: Expected a string value
+2026-02-16 23:29:38,967 - __main__ - INFO - [lifespan:919] Shutting down...
+2026-02-16 23:29:38,967 - __main__ - INFO - [lifespan:929] Shutdown complete.
+2026-02-16 23:34:18,161 - __main__ - INFO - [lifespan:887] ============================================================
+2026-02-16 23:34:18,161 - __main__ - INFO - [lifespan:888] CustomOCR Pipeline API v4.0.0 starting...
+2026-02-16 23:34:18,161 - __main__ - INFO - [lifespan:889] ============================================================
+2026-02-16 23:34:18,162 - __main__ - INFO - [lifespan:890] Output Directory       : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output
+2026-02-16 23:34:18,162 - __main__ - INFO - [lifespan:891] Max Upload Size        : 500 MB
+2026-02-16 23:34:18,162 - __main__ - INFO - [lifespan:892] Max Workers            : 2
+2026-02-16 23:34:18,162 - __main__ - INFO - [lifespan:893] Job Retention          : 24 hours
+2026-02-16 23:34:18,162 - __main__ - INFO - [lifespan:894] Auth Method            : JWT Signature Verification (Keycloak JWKS)
+2026-02-16 23:34:18,162 - __main__ - INFO - [lifespan:895] Katonic Platform URL   : https://aice.modon.gov.sa
+2026-02-16 23:34:18,162 - __main__ - INFO - [lifespan:896] Keycloak JWKS URL      : https://aice.modon.gov.sa/auth/realms/katonic/protocol/openid-connect/certs
+2026-02-16 23:34:18,162 - __main__ - INFO - [lifespan:897] Keycloak Realm         : (auto-discover)
+2026-02-16 23:34:18,162 - __main__ - INFO - [lifespan:898] JWKS Cache TTL         : 3600 seconds
+2026-02-16 23:34:18,162 - __main__ - INFO - [lifespan:899] Token Cache TTL        : 300 seconds
+2026-02-16 23:34:18,162 - __main__ - INFO - [lifespan:900] PyJWT available        : True
+2026-02-16 23:34:18,162 - __main__ - INFO - [lifespan:910] Discovering Keycloak JWKS at https://aice.modon.gov.sa...
+2026-02-16 23:34:18,186 - httpx - INFO - [_send_single_request:1740] HTTP Request: GET https://aice.modon.gov.sa/auth/realms/katonic/protocol/openid-connect/certs "HTTP/1.1 200 OK"
+2026-02-16 23:34:18,187 - __main__ - INFO - [lifespan:913] ✓ JWKS keys loaded: 1 signing key(s) from https://aice.modon.gov.sa/auth/realms/katonic/protocol/openid-connect/certs
+2026-02-16 23:34:18,187 - __main__ - INFO - [lifespan:932] ============================================================
+2026-02-16 23:34:18,187 - __main__ - INFO - [lifespan:933] API Ready — JWT signatures verified via Keycloak public keys.
+2026-02-16 23:34:18,187 - __main__ - INFO - [lifespan:934] ============================================================
+2026-02-16 23:35:53,619 - __main__ - ERROR - [verify_token:710] JWT verification error: The specified key is an asymmetric key or x509 certificate and should not be used as an HMAC secret.
+Traceback (most recent call last):
+  File "/home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/ocr_app.py", line 686, in verify_token
+    verified_claims = _jwks_manager.verify_token(jwt_token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/ocr_app.py", line 386, in verify_token
+    decoded = pyjwt.decode(
+              ^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/jwt/api_jwt.py", line 371, in decode
+    decoded = self.decode_complete(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/jwt/api_jwt.py", line 268, in decode_complete
+    decoded = self._jws.decode_complete(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/jwt/api_jws.py", line 244, in decode_complete
+    self._verify_signature(signing_input, header, signature, key, algorithms)
+  File "/opt/conda/lib/python3.12/site-packages/jwt/api_jws.py", line 349, in _verify_signature
+    prepared_key = alg_obj.prepare_key(key)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/jwt/algorithms.py", line 346, in prepare_key
+    raise InvalidKeyError(
+jwt.exceptions.InvalidKeyError: The specified key is an asymmetric key or x509 certificate and should not be used as an HMAC secret.
+
+2026-02-16 23:35:53,619 - __main__ - WARNING - [http_exception_handler:995] HTTP 403 on /auth/verify: Token verification error: The specified key is an asymmetric key or x509 certificate and should not be used as an HMAC secret.
+2026-02-16 23:37:21,200 - __main__ - ERROR - [verify_token:710] JWT verification error: The specified key is an asymmetric key or x509 certificate and should not be used as an HMAC secret.
+Traceback (most recent call last):
+  File "/home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/ocr_app.py", line 686, in verify_token
+    verified_claims = _jwks_manager.verify_token(jwt_token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/ocr_app.py", line 386, in verify_token
+    decoded = pyjwt.decode(
+              ^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/jwt/api_jwt.py", line 371, in decode
+    decoded = self.decode_complete(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/jwt/api_jwt.py", line 268, in decode_complete
+    decoded = self._jws.decode_complete(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/jwt/api_jws.py", line 244, in decode_complete
+    self._verify_signature(signing_input, header, signature, key, algorithms)
+  File "/opt/conda/lib/python3.12/site-packages/jwt/api_jws.py", line 349, in _verify_signature
+    prepared_key = alg_obj.prepare_key(key)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/jwt/algorithms.py", line 346, in prepare_key
+    raise InvalidKeyError(
+jwt.exceptions.InvalidKeyError: The specified key is an asymmetric key or x509 certificate and should not be used as an HMAC secret.
+
+2026-02-16 23:37:21,200 - __main__ - WARNING - [http_exception_handler:995] HTTP 403 on /auth/verify: Token verification error: The specified key is an asymmetric key or x509 certificate and should not be used as an HMAC secret.
+2026-02-16 23:37:51,096 - __main__ - INFO - [lifespan:938] Shutting down...
+2026-02-16 23:37:51,096 - __main__ - INFO - [lifespan:948] Shutdown complete.
+2026-02-16 23:51:16,756 - __main__ - INFO - [lifespan:349] ============================================================
+2026-02-16 23:51:16,756 - __main__ - INFO - [lifespan:350] CustomOCR Pipeline API v2.3.0 starting...
+2026-02-16 23:51:16,756 - __main__ - INFO - [lifespan:351] ============================================================
+2026-02-16 23:51:16,756 - __main__ - INFO - [lifespan:354] Output Directory : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output
+2026-02-16 23:51:16,756 - __main__ - INFO - [lifespan:355] Completed Dir    : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output/completed
+2026-02-16 23:51:16,756 - __main__ - INFO - [lifespan:356] Max Upload Size  : 500 MB
+2026-02-16 23:51:16,756 - __main__ - INFO - [lifespan:357] Max Workers      : 2
+2026-02-16 23:51:16,756 - __main__ - INFO - [lifespan:358] Job Retention    : 24 hours
+2026-02-16 23:51:16,756 - __main__ - INFO - [lifespan:359] Allowed Extensions: 23 types
+2026-02-16 23:51:16,756 - __main__ - INFO - [lifespan:364] Auth Token       : Configured (eyJh****JYgM)
+2026-02-16 23:51:16,757 - __main__ - INFO - [lifespan:374] Output directory: Writable ✓
+2026-02-16 23:51:16,757 - __main__ - INFO - [lifespan:381] Thread pool initialized with 2 workers
+2026-02-16 23:51:16,757 - __main__ - INFO - [lifespan:389] ============================================================
+2026-02-16 23:51:16,757 - __main__ - INFO - [lifespan:390] API Ready. Accepting requests.
+2026-02-16 23:51:16,757 - __main__ - INFO - [lifespan:391] ============================================================
+2026-02-16 23:52:36,391 - __main__ - INFO - [process_document:710] [Job cfd3b3574b23fe0a] Received: saudi_2030.pdf (0.06 MB)
+2026-02-16 23:52:44,514 - pikepdf._core - INFO - [<module>:13] pikepdf C++ to Python logger bridge initialized
+2026-02-16 23:52:44,612 - __main__ - INFO - [_load_pipeline_modules:237] All pipeline modules loaded successfully
+2026-02-16 23:52:44,612 - __main__ - INFO - [process_ocr_pipeline:513] [Job cfd3b3574b23fe0a] Starting pipeline with 38 workers
+2026-02-16 23:52:44,612 - __main__ - INFO - [process_ocr_pipeline:517] [Job cfd3b3574b23fe0a] Step 1/3 - Ingesting file...
+2026-02-16 23:52:44,613 - root - INFO - [_load_config:91] ✅ Loaded config from /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/resources/dla.vars.json
+2026-02-16 23:52:44,621 - root - INFO - [_register_fonts:111] ✅ Loaded font for Arabic support: /usr/share/fonts/truetype/dejavu/DejaVuSans.ttf
+2026-02-16 23:52:44,622 - root - INFO - [process_input:139] 📄 Processing PDF: saudi_2030.pdf
+2026-02-16 23:52:44,622 - root - INFO - [_pdf_to_images_fitz:253]    -> Extracting 3 pages...
+2026-02-16 23:52:45,008 - __main__ - INFO - [process_ocr_pipeline:529] [Job cfd3b3574b23fe0a] Step 2/3 - Analyzing document layout (3 pages)...
+2026-02-16 23:54:43,826 - __main__ - WARNING - [verify_token:177] Authentication failed: invalid token attempt
+2026-02-16 23:54:43,827 - __main__ - WARNING - [http_exception_handler:469] HTTP 401 on /process: Invalid or expired token. Please check your API token from Katonic AI Studio → API Management.
+2026-02-16 23:56:45,701 - __main__ - WARNING - [verify_token:177] Authentication failed: invalid token attempt
+2026-02-16 23:56:45,701 - __main__ - WARNING - [http_exception_handler:469] HTTP 401 on /process: Invalid or expired token. Please check your API token from Katonic AI Studio → API Management.
+2026-02-17 00:15:09,948 - __main__ - INFO - [lifespan:545] ============================================================
+2026-02-17 00:15:09,948 - __main__ - INFO - [lifespan:546] CustomOCR Pipeline API v2.4.0 starting...
+2026-02-17 00:15:09,948 - __main__ - INFO - [lifespan:547] ============================================================
+2026-02-17 00:15:09,948 - __main__ - INFO - [lifespan:550] Output Directory : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output
+2026-02-17 00:15:09,948 - __main__ - INFO - [lifespan:551] Completed Dir    : /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/output/completed
+2026-02-17 00:15:09,948 - __main__ - INFO - [lifespan:552] Max Upload Size  : 500 MB
+2026-02-17 00:15:09,948 - __main__ - INFO - [lifespan:553] Max Workers      : 2
+2026-02-17 00:15:09,948 - __main__ - INFO - [lifespan:554] Job Retention    : 24 hours
+2026-02-17 00:15:09,948 - __main__ - INFO - [lifespan:555] Allowed Extensions: 23 types
+2026-02-17 00:15:09,948 - __main__ - INFO - [lifespan:558] ----------------------------------------
+2026-02-17 00:15:09,948 - __main__ - INFO - [lifespan:559] AUTHENTICATION CONFIG:
+2026-02-17 00:15:09,948 - __main__ - INFO - [lifespan:560]   PyJWT installed   : Yes
+2026-02-17 00:15:09,948 - __main__ - INFO - [lifespan:561]   JWT Secret        : Not set (expiry-only validation)
+2026-02-17 00:15:09,948 - __main__ - INFO - [lifespan:562]   Static tokens     : 1 configured
+2026-02-17 00:15:09,948 - __main__ - INFO - [lifespan:563]   JWT Algorithms    : ['HS256']
+2026-02-17 00:15:09,949 - __main__ - INFO - [lifespan:566]   -> JWT validation enabled: ALL Katonic platform tokens accepted automatically
+2026-02-17 00:15:09,949 - __main__ - INFO - [lifespan:573] ----------------------------------------
+2026-02-17 00:15:09,949 - __main__ - INFO - [lifespan:580] Output directory: Writable
+2026-02-17 00:15:09,949 - __main__ - INFO - [lifespan:587] Thread pool initialized with 2 workers
+2026-02-17 00:15:09,949 - __main__ - INFO - [lifespan:595] ============================================================
+2026-02-17 00:15:09,949 - __main__ - INFO - [lifespan:596] API Ready. Accepting requests.
+2026-02-17 00:15:09,949 - __main__ - INFO - [lifespan:597] ============================================================
+2026-02-17 00:16:26,887 - __main__ - INFO - [validate_jwt_token:219] JWT validated successfully — sub: 8eed07eef46f4282b81b5090b649447fkatonic, exp: 33296725523023
+2026-02-17 00:16:26,891 - __main__ - INFO - [process_document:930] [Job 4631c3f0f18bd673] Received: Reasons to use Nextcloud.pdf (0.93 MB)
+2026-02-17 00:16:34,340 - pikepdf._core - INFO - [<module>:13] pikepdf C++ to Python logger bridge initialized
+2026-02-17 00:16:34,353 - __main__ - INFO - [_load_pipeline_modules:433] All pipeline modules loaded successfully
+2026-02-17 00:16:34,354 - __main__ - INFO - [process_ocr_pipeline:721] [Job 4631c3f0f18bd673] Starting pipeline with 38 workers
+2026-02-17 00:16:34,354 - __main__ - INFO - [process_ocr_pipeline:725] [Job 4631c3f0f18bd673] Step 1/3 - Ingesting file...
+2026-02-17 00:16:34,354 - root - INFO - [_load_config:91] ✅ Loaded config from /home/katonic/workspace/upd-custom-ocr-pipeline-fastapi copy/resources/dla.vars.json
+2026-02-17 00:16:34,363 - root - INFO - [_register_fonts:111] ✅ Loaded font for Arabic support: /usr/share/fonts/truetype/dejavu/DejaVuSans.ttf
+2026-02-17 00:16:34,364 - root - INFO - [process_input:139] 📄 Processing PDF: Reasons to use Nextcloud.pdf
+2026-02-17 00:16:34,366 - root - INFO - [_pdf_to_images_fitz:253]    -> Extracting 8 pages...
+2026-02-17 00:16:36,896 - __main__ - INFO - [process_ocr_pipeline:737] [Job 4631c3f0f18bd673] Step 2/3 - Analyzing document layout (8 pages)...
+2026-02-17 00:19:33,472 - __main__ - WARNING - [validate_token_comprehensive:314] Authentication failed: JWT: Not a valid JWT format: Invalid crypto padding | Static: Token does not match any configured static tokens
+2026-02-17 00:19:33,472 - __main__ - WARNING - [http_exception_handler:677] HTTP 401 on /process: Invalid or expired token. Please check your API token from Katonic AI Studio → API Management. If you just created a new token, ensure it has not expired.
+2026-02-17 00:22:26,856 - __main__ - WARNING - [validate_token_comprehensive:314] Authentication failed: JWT: Not a valid JWT format: Invalid crypto padding | Static: Token does not match any configured static tokens
+2026-02-17 00:22:26,857 - __main__ - WARNING - [http_exception_handler:677] HTTP 401 on /process: Invalid or expired token. Please check your API token from Katonic AI Studio → API Management. If you just created a new token, ensure it has not expired.

@@ -1,0 +1,9 @@
+{
+  "34996645143b0acd1a3798d581565f27137a68b87c2e2146656b65c4e39ee30d": {
+    "name": "test",
+    "registered_by": "env:API_AUTH_TOKEN",
+    "registered_at": "2026-02-16T19:02:58.481840",
+    "sub": "8eed07eef46f4282b81b5090b649447fkatonic",
+    "has_katonic_sub": true
+  }
+}
