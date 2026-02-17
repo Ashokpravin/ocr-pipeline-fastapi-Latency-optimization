@@ -955,3 +955,239 @@ jwt.exceptions.InvalidKeyError: The specified key is an asymmetric key or x509 c
 2026-02-17 00:19:33,472 - __main__ - WARNING - [http_exception_handler:677] HTTP 401 on /process: Invalid or expired token. Please check your API token from Katonic AI Studio → API Management. If you just created a new token, ensure it has not expired.
 2026-02-17 00:22:26,856 - __main__ - WARNING - [validate_token_comprehensive:314] Authentication failed: JWT: Not a valid JWT format: Invalid crypto padding | Static: Token does not match any configured static tokens
 2026-02-17 00:22:26,857 - __main__ - WARNING - [http_exception_handler:677] HTTP 401 on /process: Invalid or expired token. Please check your API token from Katonic AI Studio → API Management. If you just created a new token, ensure it has not expired.
+2026-02-17 18:10:40,143 - __main__ - INFO - [lifespan:383] ============================================================
+2026-02-17 18:10:40,143 - __main__ - INFO - [lifespan:384] CustomOCR Pipeline API v2.5.0 starting...
+2026-02-17 18:10:40,143 - __main__ - INFO - [lifespan:385] ============================================================
+2026-02-17 18:10:40,143 - __main__ - INFO - [lifespan:388] Output Directory   : /home/katonic/workspace/ocr-pipeline-fastapi/output
+2026-02-17 18:10:40,143 - __main__ - INFO - [lifespan:389] Completed Dir      : /home/katonic/workspace/ocr-pipeline-fastapi/output/completed
+2026-02-17 18:10:40,143 - __main__ - INFO - [lifespan:390] Max Upload Size    : 500 MB
+2026-02-17 18:10:40,143 - __main__ - INFO - [lifespan:391] Max Workers        : 2
+2026-02-17 18:10:40,143 - __main__ - INFO - [lifespan:392] Job Retention      : 24 hours
+2026-02-17 18:10:40,143 - __main__ - INFO - [lifespan:393] Allowed Extensions : 23 types
+2026-02-17 18:10:40,143 - __main__ - INFO - [lifespan:396] --- Authentication ---
+2026-02-17 18:10:40,143 - __main__ - INFO - [lifespan:398]   Configured Tokens: 3
+2026-02-17 18:10:40,143 - __main__ - INFO - [lifespan:405]   AUTH_TOKEN_1    : REQUEST_AP****UtVo ✓
+2026-02-17 18:10:40,143 - __main__ - INFO - [lifespan:405]   AUTH_TOKEN_2    : REQUEST_AP****ATE4 ✓
+2026-02-17 18:10:40,143 - __main__ - INFO - [lifespan:405]   AUTH_TOKEN_3    : REQUEST_AP****18gA ✓
+2026-02-17 18:10:40,143 - __main__ - INFO - [lifespan:407]   AUTH_TOKEN_4    : (empty)
+2026-02-17 18:10:40,143 - __main__ - INFO - [lifespan:407]   AUTH_TOKEN_5    : (empty)
+2026-02-17 18:10:40,143 - __main__ - INFO - [lifespan:407]   AUTH_TOKEN_6    : (empty)
+2026-02-17 18:10:40,143 - __main__ - INFO - [lifespan:407]   AUTH_TOKEN_7    : (empty)
+2026-02-17 18:10:40,144 - __main__ - INFO - [lifespan:407]   AUTH_TOKEN_8    : (empty)
+2026-02-17 18:10:40,144 - __main__ - INFO - [lifespan:407]   AUTH_TOKEN_9    : (empty)
+2026-02-17 18:10:40,144 - __main__ - INFO - [lifespan:407]   AUTH_TOKEN_10    : (empty)
+2026-02-17 18:10:40,144 - __main__ - INFO - [lifespan:414] --- End Authentication ---
+2026-02-17 18:10:40,144 - __main__ - INFO - [lifespan:421] Output directory: Writable ✓
+2026-02-17 18:10:40,144 - __main__ - INFO - [lifespan:428] Thread pool initialized with 2 workers
+2026-02-17 18:10:40,144 - __main__ - INFO - [lifespan:436] ============================================================
+2026-02-17 18:10:40,144 - __main__ - INFO - [lifespan:437] API Ready. Accepting requests.
+2026-02-17 18:10:40,144 - __main__ - INFO - [lifespan:438] ============================================================
+2026-02-17 18:11:44,919 - __main__ - WARNING - [verify_token:225] Authentication failed: token does not match any configured token
+2026-02-17 18:11:44,919 - __main__ - WARNING - [http_exception_handler:514] HTTP 401 on /process: Invalid or expired token. Please check your API token from Katonic AI Studio → API Management. If this is a newly created token, ensure it has been added to the .env file and the API has been restarted.
+2026-02-17 18:12:03,620 - __main__ - INFO - [process_document:739] [Job 12f54a8b501f6b75] Received: saudi_2030.pdf (0.06 MB)
+2026-02-17 18:12:04,916 - matplotlib.font_manager - INFO - [_load_fontmanager:1639] generated new fontManager
+2026-02-17 18:12:14,984 - __main__ - ERROR - [_load_pipeline_modules:276] Failed to import DLA: numpy.core.multiarray failed to import
+2026-02-17 18:12:14,985 - __main__ - ERROR - [process_ocr_pipeline:615] [Job 12f54a8b501f6b75] Failed at step 'initialization': Pipeline dependency missing: DLA - numpy.core.multiarray failed to import
+Traceback (most recent call last):
+  File "/home/katonic/workspace/ocr-pipeline-fastapi/ocr_app.py", line 273, in _load_pipeline_modules
+    from DLA import DLA
+  File "/home/katonic/workspace/ocr-pipeline-fastapi/DLA.py", line 12, in <module>
+    from paddleocr import LayoutDetection
+  File "/opt/conda/lib/python3.11/site-packages/paddleocr/__init__.py", line 15, in <module>
+    from paddlex.inference.utils.benchmark import benchmark
+  File "/opt/conda/lib/python3.11/site-packages/paddlex/__init__.py", line 49, in <module>
+    from .inference import create_pipeline, create_predictor
+  File "/opt/conda/lib/python3.11/site-packages/paddlex/inference/__init__.py", line 16, in <module>
+    from .models import create_predictor
+  File "/opt/conda/lib/python3.11/site-packages/paddlex/inference/models/__init__.py", line 26, in <module>
+    from .anomaly_detection import UadPredictor
+  File "/opt/conda/lib/python3.11/site-packages/paddlex/inference/models/anomaly_detection/__init__.py", line 15, in <module>
+    from .predictor import UadPredictor
+  File "/opt/conda/lib/python3.11/site-packages/paddlex/inference/models/anomaly_detection/predictor.py", line 23, in <module>
+    from ..base import BasePredictor
+  File "/opt/conda/lib/python3.11/site-packages/paddlex/inference/models/base/__init__.py", line 15, in <module>
+    from .predictor import BasePredictor
+  File "/opt/conda/lib/python3.11/site-packages/paddlex/inference/models/base/predictor/__init__.py", line 15, in <module>
+    from .base_predictor import BasePredictor
+  File "/opt/conda/lib/python3.11/site-packages/paddlex/inference/models/base/predictor/base_predictor.py", line 39, in <module>
+    from ...common import HPInfer, PaddleInfer
+  File "/opt/conda/lib/python3.11/site-packages/paddlex/inference/models/common/__init__.py", line 17, in <module>
+    from .ts import BuildTSDataset, TimeFeature, TSCutOff, TSNormalize, TStoArray, TStoBatch
+  File "/opt/conda/lib/python3.11/site-packages/paddlex/inference/models/common/ts/__init__.py", line 15, in <module>
+    from .processors import *
+  File "/opt/conda/lib/python3.11/site-packages/paddlex/inference/models/common/ts/processors.py", line 22, in <module>
+    from .funcs import load_from_dataframe, time_feature
+  File "/opt/conda/lib/python3.11/site-packages/paddlex/inference/models/common/ts/funcs.py", line 29, in <module>
+    from sklearn.preprocessing import StandardScaler
+  File "/opt/conda/lib/python3.11/site-packages/sklearn/__init__.py", line 70, in <module>
+    from sklearn.base import clone  # noqa: E402
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/sklearn/base.py", line 19, in <module>
+    from sklearn.utils._metadata_requests import _MetadataRequester, _routing_enabled
+  File "/opt/conda/lib/python3.11/site-packages/sklearn/utils/__init__.py", line 9, in <module>
+    from sklearn.utils._chunking import gen_batches, gen_even_slices
+  File "/opt/conda/lib/python3.11/site-packages/sklearn/utils/_chunking.py", line 11, in <module>
+    from sklearn.utils._param_validation import Interval, validate_params
+  File "/opt/conda/lib/python3.11/site-packages/sklearn/utils/_param_validation.py", line 17, in <module>
+    from sklearn.utils.validation import _is_arraylike_not_scalar
+  File "/opt/conda/lib/python3.11/site-packages/sklearn/utils/validation.py", line 24, in <module>
+    from sklearn.utils._array_api import (
+  File "/opt/conda/lib/python3.11/site-packages/sklearn/utils/_array_api.py", line 20, in <module>
+    from sklearn.utils.fixes import parse_version
+  File "/opt/conda/lib/python3.11/site-packages/sklearn/utils/fixes.py", line 389, in <module>
+    import pyarrow
+  File "/opt/conda/lib/python3.11/site-packages/pyarrow/__init__.py", line 65, in <module>
+    import pyarrow.lib as _lib
+  File "pyarrow/lib.pyx", line 36, in init pyarrow.lib
+ImportError: numpy.core.multiarray failed to import
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/katonic/workspace/ocr-pipeline-fastapi/ocr_app.py", line 544, in process_ocr_pipeline
+    _load_pipeline_modules()
+  File "/home/katonic/workspace/ocr-pipeline-fastapi/ocr_app.py", line 277, in _load_pipeline_modules
+    raise RuntimeError(f"Pipeline dependency missing: DLA - {e}")
+RuntimeError: Pipeline dependency missing: DLA - numpy.core.multiarray failed to import
+
+2026-02-17 18:12:14,985 - __main__ - INFO - [cleanup_job_directory:632] Cleaned up: 12f54a8b501f6b75
+2026-02-17 18:12:43,011 - __main__ - INFO - [lifespan:443] CustomOCR Pipeline API shutting down...
+2026-02-17 18:12:43,011 - __main__ - INFO - [periodic_job_cleanup:939] Periodic cleanup task cancelled
+2026-02-17 18:12:43,012 - __main__ - INFO - [lifespan:454] Thread pool shut down
+2026-02-17 18:12:43,012 - __main__ - INFO - [lifespan:456] Shutdown complete.
+2026-02-17 18:13:21,580 - __main__ - INFO - [lifespan:383] ============================================================
+2026-02-17 18:13:21,580 - __main__ - INFO - [lifespan:384] CustomOCR Pipeline API v2.5.0 starting...
+2026-02-17 18:13:21,580 - __main__ - INFO - [lifespan:385] ============================================================
+2026-02-17 18:13:21,580 - __main__ - INFO - [lifespan:388] Output Directory   : /home/katonic/workspace/ocr-pipeline-fastapi/output
+2026-02-17 18:13:21,580 - __main__ - INFO - [lifespan:389] Completed Dir      : /home/katonic/workspace/ocr-pipeline-fastapi/output/completed
+2026-02-17 18:13:21,580 - __main__ - INFO - [lifespan:390] Max Upload Size    : 500 MB
+2026-02-17 18:13:21,581 - __main__ - INFO - [lifespan:391] Max Workers        : 2
+2026-02-17 18:13:21,581 - __main__ - INFO - [lifespan:392] Job Retention      : 24 hours
+2026-02-17 18:13:21,581 - __main__ - INFO - [lifespan:393] Allowed Extensions : 23 types
+2026-02-17 18:13:21,581 - __main__ - INFO - [lifespan:396] --- Authentication ---
+2026-02-17 18:13:21,581 - __main__ - INFO - [lifespan:398]   Configured Tokens: 3
+2026-02-17 18:13:21,581 - __main__ - INFO - [lifespan:405]   AUTH_TOKEN_1    : REQUEST_AP****UtVo ✓
+2026-02-17 18:13:21,581 - __main__ - INFO - [lifespan:405]   AUTH_TOKEN_2    : REQUEST_AP****ATE4 ✓
+2026-02-17 18:13:21,581 - __main__ - INFO - [lifespan:405]   AUTH_TOKEN_3    : REQUEST_AP****18gA ✓
+2026-02-17 18:13:21,581 - __main__ - INFO - [lifespan:407]   AUTH_TOKEN_4    : (empty)
+2026-02-17 18:13:21,581 - __main__ - INFO - [lifespan:407]   AUTH_TOKEN_5    : (empty)
+2026-02-17 18:13:21,581 - __main__ - INFO - [lifespan:407]   AUTH_TOKEN_6    : (empty)
+2026-02-17 18:13:21,581 - __main__ - INFO - [lifespan:407]   AUTH_TOKEN_7    : (empty)
+2026-02-17 18:13:21,581 - __main__ - INFO - [lifespan:407]   AUTH_TOKEN_8    : (empty)
+2026-02-17 18:13:21,581 - __main__ - INFO - [lifespan:407]   AUTH_TOKEN_9    : (empty)
+2026-02-17 18:13:21,581 - __main__ - INFO - [lifespan:407]   AUTH_TOKEN_10    : (empty)
+2026-02-17 18:13:21,581 - __main__ - INFO - [lifespan:414] --- End Authentication ---
+2026-02-17 18:13:21,581 - __main__ - INFO - [lifespan:421] Output directory: Writable ✓
+2026-02-17 18:13:21,581 - __main__ - INFO - [lifespan:428] Thread pool initialized with 2 workers
+2026-02-17 18:13:21,581 - __main__ - INFO - [lifespan:436] ============================================================
+2026-02-17 18:13:21,581 - __main__ - INFO - [lifespan:437] API Ready. Accepting requests.
+2026-02-17 18:13:21,581 - __main__ - INFO - [lifespan:438] ============================================================
+2026-02-17 18:13:58,863 - __main__ - INFO - [process_document:739] [Job e1558b4f42bb2597] Received: saudi_2030.pdf (0.06 MB)
+2026-02-17 18:14:04,857 - __main__ - ERROR - [_load_pipeline_modules:276] Failed to import DLA: numpy.core.multiarray failed to import
+2026-02-17 18:14:04,858 - __main__ - ERROR - [process_ocr_pipeline:615] [Job e1558b4f42bb2597] Failed at step 'initialization': Pipeline dependency missing: DLA - numpy.core.multiarray failed to import
+Traceback (most recent call last):
+  File "/home/katonic/workspace/ocr-pipeline-fastapi/ocr_app.py", line 273, in _load_pipeline_modules
+    from DLA import DLA
+  File "/home/katonic/workspace/ocr-pipeline-fastapi/DLA.py", line 12, in <module>
+    from paddleocr import LayoutDetection
+  File "/opt/conda/lib/python3.11/site-packages/paddleocr/__init__.py", line 15, in <module>
+    from paddlex.inference.utils.benchmark import benchmark
+  File "/opt/conda/lib/python3.11/site-packages/paddlex/__init__.py", line 49, in <module>
+    from .inference import create_pipeline, create_predictor
+  File "/opt/conda/lib/python3.11/site-packages/paddlex/inference/__init__.py", line 16, in <module>
+    from .models import create_predictor
+  File "/opt/conda/lib/python3.11/site-packages/paddlex/inference/models/__init__.py", line 26, in <module>
+    from .anomaly_detection import UadPredictor
+  File "/opt/conda/lib/python3.11/site-packages/paddlex/inference/models/anomaly_detection/__init__.py", line 15, in <module>
+    from .predictor import UadPredictor
+  File "/opt/conda/lib/python3.11/site-packages/paddlex/inference/models/anomaly_detection/predictor.py", line 23, in <module>
+    from ..base import BasePredictor
+  File "/opt/conda/lib/python3.11/site-packages/paddlex/inference/models/base/__init__.py", line 15, in <module>
+    from .predictor import BasePredictor
+  File "/opt/conda/lib/python3.11/site-packages/paddlex/inference/models/base/predictor/__init__.py", line 15, in <module>
+    from .base_predictor import BasePredictor
+  File "/opt/conda/lib/python3.11/site-packages/paddlex/inference/models/base/predictor/base_predictor.py", line 39, in <module>
+    from ...common import HPInfer, PaddleInfer
+  File "/opt/conda/lib/python3.11/site-packages/paddlex/inference/models/common/__init__.py", line 17, in <module>
+    from .ts import BuildTSDataset, TimeFeature, TSCutOff, TSNormalize, TStoArray, TStoBatch
+  File "/opt/conda/lib/python3.11/site-packages/paddlex/inference/models/common/ts/__init__.py", line 15, in <module>
+    from .processors import *
+  File "/opt/conda/lib/python3.11/site-packages/paddlex/inference/models/common/ts/processors.py", line 22, in <module>
+    from .funcs import load_from_dataframe, time_feature
+  File "/opt/conda/lib/python3.11/site-packages/paddlex/inference/models/common/ts/funcs.py", line 29, in <module>
+    from sklearn.preprocessing import StandardScaler
+  File "/opt/conda/lib/python3.11/site-packages/sklearn/__init__.py", line 70, in <module>
+    from sklearn.base import clone  # noqa: E402
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/sklearn/base.py", line 19, in <module>
+    from sklearn.utils._metadata_requests import _MetadataRequester, _routing_enabled
+  File "/opt/conda/lib/python3.11/site-packages/sklearn/utils/__init__.py", line 9, in <module>
+    from sklearn.utils._chunking import gen_batches, gen_even_slices
+  File "/opt/conda/lib/python3.11/site-packages/sklearn/utils/_chunking.py", line 11, in <module>
+    from sklearn.utils._param_validation import Interval, validate_params
+  File "/opt/conda/lib/python3.11/site-packages/sklearn/utils/_param_validation.py", line 17, in <module>
+    from sklearn.utils.validation import _is_arraylike_not_scalar
+  File "/opt/conda/lib/python3.11/site-packages/sklearn/utils/validation.py", line 24, in <module>
+    from sklearn.utils._array_api import (
+  File "/opt/conda/lib/python3.11/site-packages/sklearn/utils/_array_api.py", line 20, in <module>
+    from sklearn.utils.fixes import parse_version
+  File "/opt/conda/lib/python3.11/site-packages/sklearn/utils/fixes.py", line 389, in <module>
+    import pyarrow
+  File "/opt/conda/lib/python3.11/site-packages/pyarrow/__init__.py", line 65, in <module>
+    import pyarrow.lib as _lib
+  File "pyarrow/lib.pyx", line 36, in init pyarrow.lib
+ImportError: numpy.core.multiarray failed to import
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/katonic/workspace/ocr-pipeline-fastapi/ocr_app.py", line 544, in process_ocr_pipeline
+    _load_pipeline_modules()
+  File "/home/katonic/workspace/ocr-pipeline-fastapi/ocr_app.py", line 277, in _load_pipeline_modules
+    raise RuntimeError(f"Pipeline dependency missing: DLA - {e}")
+RuntimeError: Pipeline dependency missing: DLA - numpy.core.multiarray failed to import
+
+2026-02-17 18:14:04,858 - __main__ - INFO - [cleanup_job_directory:632] Cleaned up: e1558b4f42bb2597
+2026-02-17 18:21:24,297 - __main__ - INFO - [lifespan:443] CustomOCR Pipeline API shutting down...
+2026-02-17 18:21:24,297 - __main__ - INFO - [periodic_job_cleanup:939] Periodic cleanup task cancelled
+2026-02-17 18:21:24,297 - __main__ - INFO - [lifespan:454] Thread pool shut down
+2026-02-17 18:21:24,298 - __main__ - INFO - [lifespan:456] Shutdown complete.
+2026-02-17 18:23:29,114 - __main__ - INFO - [lifespan:383] ============================================================
+2026-02-17 18:23:29,114 - __main__ - INFO - [lifespan:384] CustomOCR Pipeline API v2.5.0 starting...
+2026-02-17 18:23:29,114 - __main__ - INFO - [lifespan:385] ============================================================
+2026-02-17 18:23:29,114 - __main__ - INFO - [lifespan:388] Output Directory   : /home/katonic/workspace/ocr-pipeline-fastapi/output
+2026-02-17 18:23:29,114 - __main__ - INFO - [lifespan:389] Completed Dir      : /home/katonic/workspace/ocr-pipeline-fastapi/output/completed
+2026-02-17 18:23:29,115 - __main__ - INFO - [lifespan:390] Max Upload Size    : 500 MB
+2026-02-17 18:23:29,115 - __main__ - INFO - [lifespan:391] Max Workers        : 2
+2026-02-17 18:23:29,115 - __main__ - INFO - [lifespan:392] Job Retention      : 24 hours
+2026-02-17 18:23:29,115 - __main__ - INFO - [lifespan:393] Allowed Extensions : 23 types
+2026-02-17 18:23:29,115 - __main__ - INFO - [lifespan:396] --- Authentication ---
+2026-02-17 18:23:29,115 - __main__ - INFO - [lifespan:398]   Configured Tokens: 3
+2026-02-17 18:23:29,115 - __main__ - INFO - [lifespan:405]   AUTH_TOKEN_1    : REQUEST_AP****UtVo ✓
+2026-02-17 18:23:29,115 - __main__ - INFO - [lifespan:405]   AUTH_TOKEN_2    : REQUEST_AP****ATE4 ✓
+2026-02-17 18:23:29,115 - __main__ - INFO - [lifespan:405]   AUTH_TOKEN_3    : REQUEST_AP****18gA ✓
+2026-02-17 18:23:29,115 - __main__ - INFO - [lifespan:407]   AUTH_TOKEN_4    : (empty)
+2026-02-17 18:23:29,115 - __main__ - INFO - [lifespan:407]   AUTH_TOKEN_5    : (empty)
+2026-02-17 18:23:29,115 - __main__ - INFO - [lifespan:407]   AUTH_TOKEN_6    : (empty)
+2026-02-17 18:23:29,115 - __main__ - INFO - [lifespan:407]   AUTH_TOKEN_7    : (empty)
+2026-02-17 18:23:29,115 - __main__ - INFO - [lifespan:407]   AUTH_TOKEN_8    : (empty)
+2026-02-17 18:23:29,115 - __main__ - INFO - [lifespan:407]   AUTH_TOKEN_9    : (empty)
+2026-02-17 18:23:29,115 - __main__ - INFO - [lifespan:407]   AUTH_TOKEN_10    : (empty)
+2026-02-17 18:23:29,115 - __main__ - INFO - [lifespan:414] --- End Authentication ---
+2026-02-17 18:23:29,115 - __main__ - INFO - [lifespan:421] Output directory: Writable ✓
+2026-02-17 18:23:29,115 - __main__ - INFO - [lifespan:428] Thread pool initialized with 2 workers
+2026-02-17 18:23:29,115 - __main__ - INFO - [lifespan:436] ============================================================
+2026-02-17 18:23:29,115 - __main__ - INFO - [lifespan:437] API Ready. Accepting requests.
+2026-02-17 18:23:29,115 - __main__ - INFO - [lifespan:438] ============================================================
+2026-02-17 18:24:21,410 - __main__ - INFO - [process_document:739] [Job bc69557c45788679] Received: saudi_2030.pdf (0.06 MB)
+2026-02-17 18:24:26,675 - pikepdf._core - INFO - [<module>:13] pikepdf C++ to Python logger bridge initialized
+2026-02-17 18:24:26,698 - __main__ - INFO - [_load_pipeline_modules:286] All pipeline modules loaded successfully
+2026-02-17 18:24:26,698 - __main__ - INFO - [process_ocr_pipeline:551] [Job bc69557c45788679] Starting pipeline with 18 workers
+2026-02-17 18:24:26,698 - __main__ - INFO - [process_ocr_pipeline:555] [Job bc69557c45788679] Step 1/3 - Ingesting file...
+2026-02-17 18:24:26,698 - root - INFO - [_load_config:91] ✅ Loaded config from /home/katonic/workspace/ocr-pipeline-fastapi/resources/dla.vars.json
+2026-02-17 18:24:26,710 - root - INFO - [_register_fonts:111] ✅ Loaded font for Arabic support: /usr/share/fonts/truetype/dejavu/DejaVuSans.ttf
+2026-02-17 18:24:26,711 - root - INFO - [process_input:139] 📄 Processing PDF: saudi_2030.pdf
+2026-02-17 18:24:26,715 - root - INFO - [_pdf_to_images_fitz:253]    -> Extracting 3 pages...
+2026-02-17 18:24:27,135 - __main__ - INFO - [process_ocr_pipeline:567] [Job bc69557c45788679] Step 2/3 - Analyzing layout (3 pages)...
+2026-02-17 18:25:52,806 - __main__ - WARNING - [verify_token:225] Authentication failed: token does not match any configured token
+2026-02-17 18:25:52,806 - __main__ - WARNING - [http_exception_handler:514] HTTP 401 on /process: Invalid or expired token. Please check your API token from Katonic AI Studio → API Management. If this is a newly created token, ensure it has been added to the .env file and the API has been restarted.
