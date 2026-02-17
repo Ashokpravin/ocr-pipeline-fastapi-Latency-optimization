@@ -1,6 +1,35 @@
 __pycache__/
+
 venv/
+
 *.pyc
+
 .env
+
 .deps_ok
+
 .deps_installed
+
+
+
+# IDE
+
+.vscode/
+
+.idea/
+
+
+
+# Output files (generated at runtime)
+
+output/
+
+*.log
+
+
+
+# OS files
+
+.DS_Store
+
+Thumbs.db
