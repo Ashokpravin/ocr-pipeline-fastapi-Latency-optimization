@@ -133,7 +133,8 @@ def _setup():
         result = _run(
             "apt-get update -qq && "
             "apt-get install -y -qq --no-install-recommends "
-            "libreoffice-writer libreoffice-calc libreoffice-impress"
+            "apt-get install libreoffice-writer libreoffice-calc libreoffice-impress"
+            
         )
         if result.returncode != 0:
             print("  Minimal install failed, trying full LibreOffice...", flush=True)
