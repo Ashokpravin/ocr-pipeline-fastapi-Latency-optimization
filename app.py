@@ -147,6 +147,7 @@ def _predownload_paddlex_model():
 
 def _setup():
     """One-time dependency fix. Runs before any pipeline imports."""
+    os.environ.setdefault("PADDLEX_HOME", "/home/katonic/.paddlex")
 
     base_dir = os.path.dirname(os.path.abspath(__file__))
     marker = os.path.join(base_dir, ".deps_ok")
